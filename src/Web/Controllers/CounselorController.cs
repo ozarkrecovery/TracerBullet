@@ -1,21 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web.Mvc;
-using OzarkRecovery.Core.Domain.Model;
 using OzarkRecovery.Core.Domain.Interfaces;
+using OzarkRecovery.Core.Domain.Model;
 
 namespace OzarkRecovery.Web.Controllers
 {
     public class CounselorController : BaseController
     {
-        public CounselorController(IRepository repository) : base(repository) { }
+        public CounselorController(IRepository repository) : base(repository)
+        {
+        }
 
         public ActionResult Index()
-		{
-		    //ViewBag.User = WhoAmI();
-		    //ViewBag.Counselors = _repository.Find<Counselor>(x => x.IsActive == true);
-            ViewBag.User = new Counselor{ Id=1234, FullName = "Johnny Supervisor", IsActive=true, IsSupervisor=true, Password="abc", UserName="jsupe"};
+        {
+            //ViewBag.User = WhoAmI();
+            //ViewBag.Counselors = _repository.Find<Counselor>(x => x.IsActive == true);
+            ViewBag.User = new Counselor {Id = 1234, FullName = "Johnny Supervisor", IsActive = true, IsSupervisor = true, Password = "abc", UserName = "jsupe"};
             ViewBag.Counselors = new List<Counselor>
                                      {
                                          new Counselor
@@ -60,16 +61,23 @@ namespace OzarkRecovery.Web.Controllers
                                                  Programs = new List<Program>()
                                              }
                                      };
+
             return View();
         }
 
         public ActionResult Show(string username)
         {
-            var counselor = _repository.Find<Counselor>(x => x.UserName == username).SingleOrDefault();
-            if (counselor == null)
-                return Redirect<CounselorController>(c => c.Index());
+            //var counselor = _repository.Find<Counselor>(x => x.UserName == username).SingleOrDefault();
+            //if (counselor == null)
+            //    return Redirect<CounselorController>(c => c.Index());
 
-            return View(counselor);
+            ViewBag.Counselor = new Counselor
+                {
+                    UserName = username,
+                    FullName = username.ToUpper()
+                };
+
+            return View();
         }
 
         public ActionResult Add()
