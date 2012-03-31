@@ -9,7 +9,7 @@ namespace OzarkRecovery.Core.Domain.Model
 	{
 		public string Name { get; set; }
         public IList<Meeting> Meetings { get; set; }
-        public IList<Srceening> Screenings { get; set; }
+        public IList<Screening> Screenings { get; set; }
         public IList<Assignment> Assignments { get; set; }
 
 	}
