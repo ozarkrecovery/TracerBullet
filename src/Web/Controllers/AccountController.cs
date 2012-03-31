@@ -20,13 +20,13 @@ namespace OzarkRecovery.Web.Controllers
             _securityContext = securityContext;
         }
 
-        public ActionResult Login()
+        public ActionResult LogOn()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Login(LoginViewModel login)
+        public ActionResult LogOn(LoginViewModel login)
         {
             User user = _repository.Find<User>(x => x.Username.Equals(login.Email))
                                   .FirstOrDefault();
@@ -39,11 +39,12 @@ namespace OzarkRecovery.Web.Controllers
             if (!login.Password.Equals(user.Password))
             {
                 login.ErrorMessage = string.Format("Password does not match the one on record for {0}. Please note password is case sensitive", login.Email);
+                return View(login);
             }
 
             _securityContext.Create(user.Username);
 
-            return View("Home");
+            return Redirect("/");
         }
 
     }

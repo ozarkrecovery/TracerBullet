@@ -10,13 +10,15 @@ namespace OzarkRecovery.Infrastructure.DependencyResolution
 {
     public class InMemoryRepository : IRepository
     {
-        IList<User> users = new List<User>() { { new User() { Username = "tjosbon", Password = "tjosbon@ozarkrecovery.com" } } };
+        IList<User> users = new List<User>() { { new User() { Username = "tjosbon@ozarkrecovery.com", Password = "tjosbon" } },
+                                               { new User() { Username = "rtennyson@ozarkrecovery.com", Password = "rtennyson" } }
+                                             };
         public IQueryable<T> Find<T>(Expression<Func<T, bool>> predicate) where T : Entity
         {
             var type = typeof(T);
 
             if (type == typeof(User))
-                return (IQueryable<T>)users.AsQueryable<User>();
+                return (IQueryable<T>)users.Where<User>((Func<User,bool>)predicate.Compile()).AsQueryable<User>();
 
             throw new ArgumentException(string.Format("Invalid type {0}", type));
         }
