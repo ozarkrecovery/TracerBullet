@@ -16,6 +16,11 @@ namespace OzarkRecovery.Web.Controllers
                 {
                     new Client {Id = 1}
                 });
-		}
-	}
+        }
+
+        public ActionResult Show(string username)
+        {
+            return Content("Coming soon");
+        }
+    }
 }

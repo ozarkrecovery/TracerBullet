@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Web.Mvc;
 using NUnit.Framework;
-using OzarkRecovery.Core.Domain.Model;
 using OzarkRecovery.Web.Controllers;
 using OzarkRecovery.Core.Domain.Interfaces;
 
@@ -28,7 +28,7 @@ namespace OzarkRecovery.UnitTests
         }
 
         [Test]
-        public void Should_return_a_list_of_patients()
+        public void Should_return_a_list_of_counselors()
         {
             var vr = _result as ViewResult;
             var model = vr.Model as IList<Client>;
