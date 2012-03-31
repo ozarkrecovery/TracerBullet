@@ -1,4 +1,4 @@
-﻿using OzarkRecovery.Core.Domain.Interfaces;
+using OzarkRecovery.Core.Domain.Interfaces;
 using OzarkRecovery.Core.Domain.Model;
 using System.Collections.Generic;
 using System.Linq.Expressions;
