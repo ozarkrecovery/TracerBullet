@@ -13,10 +13,10 @@ namespace OzarkRecovery.Infrastructure.DataAccess.Impl
 	public class Repository : IRepository	{
 		
 		private ISession _session;
-		public Repository(ISession session)
+		/*public Repository(ISession session)
 		{
 			_session = session;
-		}
+		}*/
 		
 		public IQueryable<T> Find<T>(Expression<Func<T, bool>> predicate) where T : Entity
 		{

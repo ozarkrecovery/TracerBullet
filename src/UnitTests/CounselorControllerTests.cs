@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using NUnit.Framework;
 using OzarkRecovery.Core.Domain.Model;
 using OzarkRecovery.Web.Controllers;
+using OzarkRecovery.Core.Domain.Interfaces;
 
 namespace OzarkRecovery.UnitTests
 {
@@ -13,7 +14,7 @@ namespace OzarkRecovery.UnitTests
 
         protected override void Arrange()
         {
-            _controller = new CounselorController();
+            _controller = new CounselorController(Mock<IRepository>());
         }
     }
 
@@ -30,7 +31,7 @@ namespace OzarkRecovery.UnitTests
         public void Should_return_a_list_of_patients()
         {
             var vr = _result as ViewResult;
-            var model = vr.Model as IList<Patient>;
+            var model = vr.Model as IList<Client>;
             Assert.That(model.Count, Is.GreaterThan(0));
         }
     }

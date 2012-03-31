@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using LowercaseRoutesMVC;
+using OzarkRecovery.Infrastructure.DependencyResolution;
+using OzarkRecovery.Web;
+using StructureMap;
 
 namespace Web
 {
@@ -29,8 +32,9 @@ namespace Web
             Application["version"] = !string.IsNullOrEmpty(productionVersion) ? productionVersion : Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
             AreaRegistration.RegisterAllAreas();
-
-            RegisterGlobalFilters(GlobalFilters.Filters);
+        	BootStrapper.RegisterIoC();
+        	DependencyResolver.SetResolver(new StructureMapDependencyResolver(ObjectFactory.Container));
+			RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
         }
     }
