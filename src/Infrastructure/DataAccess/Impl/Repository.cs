@@ -1,4 +1,4 @@
-﻿using OzarkRecovery.Core.Domain.Interfaces;
+using OzarkRecovery.Core.Domain.Interfaces;
 using OzarkRecovery.Core.Domain.Model;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -11,46 +11,16 @@ namespace OzarkRecovery.Infrastructure.DataAccess.Impl
 {
     public class Repository : IRepository
     {
-        private DbContext context;
+        private DbContext _context;
 
         public Repository(DbContext c)
         {
-            context = c;
+            _context = c;
         }
 
-        public List<T> Find<T>(Expression<Func<T, bool>> predicate) where T : Entity
+        public IQueryable<T> Find<T>(Expression<Func<T, bool>> predicate) where T : Entity
         {
-            return context.Set<T>().Where(predicate).ToList();
-        }
-
-        public Entity FindByEntityId(int id)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public List<Entity> FindByLastName(string name)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public List<Entity> GetAll()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void Update(Entity entity)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void Delete(int id)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void Add(Entity entity)
-        {
-            throw new System.NotImplementedException();
+            return _context.Set<T>().Where(predicate);
         }
     }
 }

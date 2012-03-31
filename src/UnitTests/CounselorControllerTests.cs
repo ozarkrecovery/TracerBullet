@@ -1,8 +1,11 @@
 using System;
+using System.Collections.Generic;
 using System.Collections;
 using System.Web.Mvc;
 using NUnit.Framework;
 using OzarkRecovery.Web.Controllers;
+using OzarkRecovery.Core.Domain.Interfaces;
+using OzarkRecovery.Core.Domain.Model;
 
 namespace OzarkRecovery.UnitTests
 {
@@ -12,7 +15,7 @@ namespace OzarkRecovery.UnitTests
 
         protected override void Arrange()
         {
-            _controller = new CounselorController();
+            _controller = new CounselorController(Mock<IRepository>());
         }
     }
 
@@ -29,7 +32,8 @@ namespace OzarkRecovery.UnitTests
         public void Should_return_a_list_of_counselors()
         {
             var vr = _result as ViewResult;
-            Assert.That((vr.Model as IList).Count, Is.GreaterThan(0));
+            var model = vr.Model as IList<Counselor>;
+            Assert.That(model.Count, Is.GreaterThan(0));
         }
     }
 }

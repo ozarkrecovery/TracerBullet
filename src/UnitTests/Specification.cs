@@ -1,9 +1,11 @@
 using System;
+using Rhino.Mocks;
 using NUnit.Framework;
 
 namespace OzarkRecovery.UnitTests
 {
-    public abstract class Specification
+    [TestFixture]
+	public abstract class Specification
     {
         [SetUp]
         public void Setup()
@@ -14,9 +16,12 @@ namespace OzarkRecovery.UnitTests
 
         protected abstract void Arrange();
         protected abstract void Act();
-        //protected abstract T Mock<T>() where T : class;
+        protected T Mock<T>() where T : class
+        {
+        	return MockRepository.GenerateMock<T>();
+        }
 
-        [TearDown]
+    	[TearDown]
         public virtual void TearDown()
         {
         }
