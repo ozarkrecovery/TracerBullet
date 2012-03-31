@@ -24,7 +24,9 @@ namespace OzarkRecovery.Web.Controllers
                                                  IsActive = true,
                                                  IsSupervisor = false,
                                                  Password = "abc",
-                                                 UserName = "jadoe"
+                                                 UserName = "jadoe",
+                                                 Programs = new List<Program>()
+                                          
                                              },
                                          new Counselor
                                              {
@@ -33,7 +35,8 @@ namespace OzarkRecovery.Web.Controllers
                                                  IsActive = true,
                                                  IsSupervisor = true,
                                                  Password = "abc",
-                                                 UserName = "jodoe"
+                                                 UserName = "jodoe",
+                                                 Programs = new List<Program>()
                                              },
                                          new Counselor
                                              {
@@ -42,7 +45,8 @@ namespace OzarkRecovery.Web.Controllers
                                                  IsActive = true,
                                                  IsSupervisor = true,
                                                  Password = "abc",
-                                                 UserName = "jasmith"
+                                                 UserName = "jasmith",
+                                                 Programs = new List<Program>()
                                              },
                                          new Counselor
                                              {
@@ -51,13 +55,19 @@ namespace OzarkRecovery.Web.Controllers
                                                  IsActive = true,
                                                  IsSupervisor = true,
                                                  Password = "abc",
-                                                 UserName = "josmith"
+                                                 UserName = "josmith",
+                                                 Programs = new List<Program>()
                                              }
                                      };
             return View();
         }
 
         public ActionResult Show(string username)
+        {
+            return Content("Coming soon");
+        }
+
+        public ActionResult Add()
         {
             return Content("Coming soon");
         }

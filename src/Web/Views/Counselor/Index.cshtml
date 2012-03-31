@@ -19,7 +19,11 @@
 {
     <li>
         <div class="counselor-list-title">@(Html.ActionLink<CounselorController>(c => c.Show(counselor.UserName), counselor.FullName))</div>
-        <div class="counselor-list-meta">4 clients</div>
+        <div class="counselor-list-meta">@counselor.Programs.Count clients</div>
     </li>
     }
 </ul>
+@if((ViewBag.User as Counselor).IsSupervisor)
+{
+    <div>@(Html.ActionLink<CounselorController>(c => c.Add(), "Add New Counselor"))</div>
+}
