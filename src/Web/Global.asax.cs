@@ -19,8 +19,13 @@ namespace Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRouteLowercase("about", "about", new {controller = "Home", action = "About"});
-            routes.MapRouteLowercase("Default", "{controller}/{action}/{id}", new {controller = "Home", action = "Index", id = UrlParameter.Optional});
+            routes.MapRouteLowercase("counselor show", "counselor/{username}/{action}", new {controller = "counselor", action = "show"});
+            routes.MapRouteLowercase("supervisor show", "supervisor/{username}/{action}", new {controller = "supervisor", action = "show"});
+            routes.MapRouteLowercase("patient show", "patient/{username}/{action}", new {controller = "patient", action = "show"});
+
+            routes.MapRouteLowercase("home about", "about", new {controller = "home", action = "about"});
+
+            routes.MapRouteLowercase("Default", "{controller}/{action}/{id}", new {controller = "home", action = "index", id = UrlParameter.Optional});
         }
 
         protected void Application_Start()

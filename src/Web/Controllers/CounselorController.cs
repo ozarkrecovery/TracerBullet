@@ -14,5 +14,10 @@ namespace OzarkRecovery.Web.Controllers
                     new Patient {Id = 1}
                 });
         }
+
+        public ActionResult Show(string username)
+        {
+            return Content("Coming soon");
+        }
     }
 }
