@@ -50,8 +50,8 @@
     <Compile Include="Domain\Interfaces\IRepository.cs" />
     <Compile Include="Domain\Model\Counselor.cs" />
     <Compile Include="Domain\Model\Entity.cs" />
-    <Compile Include="Domain\Model\PatientEvent.cs" />
-    <Compile Include="Domain\Model\Patient.cs" />
+    <Compile Include="Domain\Model\ClientEvent.cs" />
+    <Compile Include="Domain\Model\Client.cs" />
     <Compile Include="Domain\Model\Phase.cs" />
     <Compile Include="Domain\Model\Program.cs" />
     <Compile Include="Domain\Model\Treatment.cs" />

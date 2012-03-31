@@ -3,23 +3,26 @@ using OzarkRecovery.Core.Domain.Model;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Linq;
+using System;
+using System.Data.Entity;
 
 
 namespace OzarkRecovery.Infrastructure.DataAccess.Impl
 {
     public class Repository : IRepository
     {
-        private ORContext context;
+        private DbContext context;
 
-        public Repository(ORContext c)
+        public Repository(DbContext c)
         {
             context = c;
         }
 
-        //public List<T> Find<T>(Expression<Func<T, bool>> predicate) where T : Entity
-        //{
-        //    return context.Query<T>().Where(predicate);
-        //}
+        public List<T> Find<T>(Expression<Func<T, bool>> predicate) where T : Entity
+        {
+            //return context.Get<T>().Where(predicate);
+            return context.Get<T>();
+        }
 
         public Entity FindByEntityId(int id)
         {
