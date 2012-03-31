@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Linq.Expressions;
 using System.Web.Mvc;
 using OzarkRecovery.Core.Domain.Interfaces;
 
@@ -14,5 +12,10 @@ namespace OzarkRecovery.Web.Controllers
 		{
 			_repository = repository;
 		}
-	}
+
+        protected RedirectResult Redirect<T>(Expression<Action<T>> action) where T : Controller
+        {
+            return Redirect(Request.RequestContext.GetUrl(action));
+        }
+    }
 }
