@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Web.Mvc;
 using OzarkRecovery.Core.Domain.Interfaces;
 using OzarkRecovery.Core.Domain.Model;
@@ -71,11 +72,25 @@ namespace OzarkRecovery.Web.Controllers
             //if (counselor == null)
             //    return Redirect<CounselorController>(c => c.Index());
 
-            ViewBag.Counselor = new Counselor
+            ViewBag.CounselorName = username.ToUpper();
+            ViewBag.Programs = new[]
                 {
-                    UserName = username,
-                    FullName = username.ToUpper()
+                    new ExpandoObject(),
+                    new ExpandoObject(),
+                    new ExpandoObject(),
                 };
+
+            ViewBag.Programs[0].Id = 1;
+            ViewBag.Programs[0].ClientName = "Jane Fonda";
+            ViewBag.Programs[0].CurrentPhase = "Treatment Planning";
+
+            ViewBag.Programs[1].Id = 2;
+            ViewBag.Programs[1].ClientName = "Tom Hanks";
+            ViewBag.Programs[1].CurrentPhase = "Intake / Screaning";
+
+            ViewBag.Programs[2].Id = 3;
+            ViewBag.Programs[2].ClientName = "The Hulk";
+            ViewBag.Programs[2].CurrentPhase = "Treatment Implementation";
 
             return View();
         }

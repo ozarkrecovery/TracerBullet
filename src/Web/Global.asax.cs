@@ -24,7 +24,7 @@ namespace Web
 
             routes.MapRouteLowercase("counselor show", "counselor/{username}/{action}", new {controller = "counselor", action = "show"});
             routes.MapRouteLowercase("supervisor show", "supervisor/{username}/{action}", new {controller = "supervisor", action = "show"});
-            routes.MapRouteLowercase("patient show", "patient/{username}/{action}", new {controller = "patient", action = "show"});
+            routes.MapRouteLowercase("client show", "client/{username}/{action}", new {controller = "client", action = "show"});
 
             routes.MapRouteLowercase("home about", "about", new {controller = "home", action = "about"});
 
@@ -37,9 +37,9 @@ namespace Web
             Application["version"] = !string.IsNullOrEmpty(productionVersion) ? productionVersion : Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
             AreaRegistration.RegisterAllAreas();
-        	BootStrapper.RegisterIoC();
-        	DependencyResolver.SetResolver(new StructureMapDependencyResolver(ObjectFactory.Container));
-			RegisterGlobalFilters(GlobalFilters.Filters);
+            BootStrapper.RegisterIoC();
+            DependencyResolver.SetResolver(new StructureMapDependencyResolver(ObjectFactory.Container));
+            RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
         }
     }
