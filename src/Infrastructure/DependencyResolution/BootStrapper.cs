@@ -7,6 +7,8 @@ using OzarkRecovery.Core.Domain.Interfaces;
 using OzarkRecovery.Infrastructure.DataAccess.Impl;
 using System.Data.Entity;
 using OzarkRecovery.Infrastructure.DataAccess;
+using OzarkRecovery.Core.Services;
+using OzarkRecovery.Infrastructure.Services;
 
 namespace OzarkRecovery.Infrastructure.DependencyResolution
 {
@@ -16,8 +18,9 @@ namespace OzarkRecovery.Infrastructure.DependencyResolution
 		{
 			ObjectFactory.Initialize(x =>
 			{
-				x.For<IRepository>().Use<Repository>();
+				x.For<IRepository>().Use<InMemoryRepository>();
 			    x.For<DbContext>().Use<ORContext>();
+                x.For<ISecurityContextService>().Use<SecurityContextService>();
 			});
 		}
 	}
