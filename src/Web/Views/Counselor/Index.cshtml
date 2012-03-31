@@ -2,27 +2,18 @@
     ViewBag.Title = "All Counselors";
 }
 
-@section HeadContent {
-    <style type="text/css">
-        .counselor-list { list-style-type: none; margin: 0; padding: 0; border: 2px solid #bbb; border-top: 0 none; }
-        .counselor-list li { padding: 10px 25px; border-top: solid 1px #bbb; }
-        .counselor-list li:first-child { border-top: 2px solid #bbb; }
-        .counselor-list li:nth-child(2n) { background: #fafafa; }
-        .counselor-list-title { font-weight: bold; font-size: 1.1em; }
-        .counselor-list-meta { font-size: .8em; }
-    </style>
-}
-<div class="greeting">Welcome @(ViewBag.User as Counselor).FullName</div>
 <h1>All Counselors</h1>
-<ul class="counselor-list">
+
+<ul class="person-list">
 @foreach (Counselor counselor in ViewBag.Counselors)
 {
     <li>
-        <div class="counselor-list-title">@(Html.ActionLink<CounselorController>(c => c.Show(counselor.UserName), counselor.FullName))</div>
-        <div class="counselor-list-meta">@counselor.Programs.Count clients</div>
+        <div class="person-list-title">@(Html.ActionLink<CounselorController>(c => c.Show(counselor.Id), counselor.FullName))</div>
+        <div class="person-list-meta">@counselor.Programs.Count clients</div>
     </li>
-    }
+}
 </ul>
+
 @if((ViewBag.User as Counselor).IsSupervisor)
 {
     <div>@(Html.ActionLink<CounselorController>(c => c.Add(), "Add New Counselor"))</div>
