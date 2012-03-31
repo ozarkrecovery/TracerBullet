@@ -5,8 +5,7 @@ using System.Text;
 
 namespace OzarkRecovery.Core.Domain.Model
 {
-    public class Survey
+    public class Meeting
     {
-        public string Name { get; set; }
     }
 }
