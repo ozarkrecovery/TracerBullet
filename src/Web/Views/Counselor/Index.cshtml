@@ -2,8 +2,34 @@
     ViewBag.Title = "All Counselors";
 }
 
+@section HeadContent {
+    <style type="text/css">
+        .counselor-list { list-style-type: none; margin: 0; padding: 0; border: 2px solid #bbb; border-top: 0 none; }
+        .counselor-list li { padding: 10px 25px; border-top: solid 1px #bbb; }
+        .counselor-list li:first-child { border-top: 2px solid #bbb; }
+        .counselor-list li:nth-child(2n) { background: #fafafa; }
+        .counselor-list-title { font-weight: bold; font-size: 1.1em; }
+        .counselor-list-meta { font-size: .8em; }
+    </style>
+}
+
 <h1>All Counselors</h1>
 
-<p>coming soon...</p>
-
-@(Html.ActionLink<CounselorController>(c => c.Show("jdoe"), "John Doe"))
+<ul class="counselor-list">
+    <li>
+        <div class="counselor-list-title">@(Html.ActionLink<CounselorController>(c => c.Show("jadoe"), "Jane Doe"))</div>
+        <div class="counselor-list-meta">4 clients</div>
+    </li>
+    <li>
+        <div class="counselor-list-title">@(Html.ActionLink<CounselorController>(c => c.Show("jodoe"), "John Doe"))</div>
+        <div class="counselor-list-meta">1 client</div>
+    </li>
+    <li>
+        <div class="counselor-list-title">@(Html.ActionLink<CounselorController>(c => c.Show("jasmith"), "Jane Smith"))</div>
+        <div class="counselor-list-meta">0 clients</div>
+    </li>
+    <li>
+        <div class="counselor-list-title">@(Html.ActionLink<CounselorController>(c => c.Show("josmith"), "John Smith"))</div>
+        <div class="counselor-list-meta">3 clients</div>
+    </li>
+</ul>
