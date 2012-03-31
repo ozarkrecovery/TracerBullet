@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Configuration;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using LowercaseRoutesMVC;
 
 namespace Web
 {
@@ -16,11 +19,15 @@ namespace Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute("Default", "{controller}/{action}/{id}", new {controller = "Home", action = "Index", id = UrlParameter.Optional});
+            routes.MapRouteLowercase("about", "about", new {controller = "Home", action = "About"});
+            routes.MapRouteLowercase("Default", "{controller}/{action}/{id}", new {controller = "Home", action = "Index", id = UrlParameter.Optional});
         }
 
         protected void Application_Start()
         {
+            var productionVersion = ConfigurationManager.AppSettings["ProductionVersion"];
+            Application["version"] = !string.IsNullOrEmpty(productionVersion) ? productionVersion : Assembly.GetExecutingAssembly().GetName().Version.ToString();
+
             AreaRegistration.RegisterAllAreas();
 
             RegisterGlobalFilters(GlobalFilters.Filters);
