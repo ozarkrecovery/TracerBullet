@@ -10,5 +10,8 @@ namespace OzarkRecovery.Core.Domain.Model
         public string UserName { get; set; }
         public string FullName { get; set; }
         public string Password { get; set; }
+        public IList<Program> Programs { get; set; }
+        public bool IsSupervisor { get; set; }
+        public bool IsActive { get; set; }
     }
 }
