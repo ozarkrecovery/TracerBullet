@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using OzarkRecovery.Core.Domain.Interfaces;
+using OzarkRecovery.Core.Domain.Model;
 
 namespace OzarkRecovery.Web.Controllers
 {
@@ -14,5 +15,11 @@ namespace OzarkRecovery.Web.Controllers
 		{
 			_repository = repository;
 		}
+
+        public Counselor WhoAmI()
+        {
+            var userid = ControllerContext.HttpContext.User.Identity.Name;
+            return _repository.Find<Counselor>(x => x.UserName == userid).FirstOrDefault();
+        }
 	}
 }
