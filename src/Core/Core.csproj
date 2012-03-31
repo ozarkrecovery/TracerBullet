@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Domain\Interfaces\IRepository.cs" />
+    <Compile Include="Domain\Model\ClientEventDesc.cs" />
     <Compile Include="Domain\Model\Counselor.cs" />
     <Compile Include="Domain\Model\Entity.cs" />
     <Compile Include="Domain\Model\ClientEvent.cs" />
