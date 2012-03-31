@@ -16,7 +16,7 @@ namespace OzarkRecovery.Infrastructure.DependencyResolution
 		{
 			ObjectFactory.Initialize(x =>
 			{
-				x.For<IRepository>().Use<Repository>();
+				x.For<IRepository>().Use<InMemoryRepository>();
 			    x.For<DbContext>().Use<ORContext>();
 			});
 		}
