@@ -20,8 +20,7 @@ namespace OzarkRecovery.Infrastructure.DataAccess.Impl
 
         public List<T> Find<T>(Expression<Func<T, bool>> predicate) where T : Entity
         {
-            //return context.Get<T>().Where(predicate);
-            return context.Get<T>();
+            return context.Set<T>().Where(predicate).ToList();
         }
 
         public Entity FindByEntityId(int id)
