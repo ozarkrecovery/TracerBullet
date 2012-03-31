@@ -1,0 +1,22 @@
+[Oo]bj/
+[Bb]in/
+*.[Oo]bj
+*.suo
+*.user
+*.[Cc]ache
+*.bak
+*.ncb
+*.log
+_ReSharper.*
+*.resharper
+
+# NuGet Packages
+packages/
+
+[Tt]humbs.db
+*.DS_Store.svn
+~$*
+
+#
+# Project specific exclusions
+#
