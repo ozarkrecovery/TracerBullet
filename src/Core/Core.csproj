@@ -55,12 +55,14 @@
     <Compile Include="Domain\Model\Phase.cs" />
     <Compile Include="Domain\Model\Program.cs" />
     <Compile Include="Domain\Model\Treatment.cs" />
+    <Compile Include="Domain\Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Services\ISecurityContextService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
