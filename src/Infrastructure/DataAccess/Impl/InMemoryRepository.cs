@@ -11,7 +11,8 @@ namespace OzarkRecovery.Infrastructure.DataAccess.Impl
     public class InMemoryRepository : IRepository
     {
         IList<User> users = new List<User>() { { new User() { Username = "tjosbon@ozarkrecovery.com", Password = "tjosbon" } },
-                                               { new User() { Username = "rtennyson@ozarkrecovery.com", Password = "rtennyson" } }
+                                               { new User() { Username = "rtennyson@ozarkrecovery.com", Password = "rtennyson" } },
+                                               { new User() { Username = "admin", Password = "admin" } }
                                              };
         public IQueryable<T> Find<T>(Expression<Func<T, bool>> predicate) where T : Entity
         {

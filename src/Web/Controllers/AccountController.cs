@@ -44,7 +44,8 @@ namespace OzarkRecovery.Web.Controllers
 
             _securityContext.Create(user.Username);
 
-            return Redirect("/");
+            return Redirect(login.ReturnUrl);
+                             
         }
 
     }

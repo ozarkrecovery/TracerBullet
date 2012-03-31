@@ -3,6 +3,7 @@ using System.Web.Mvc;
 
 namespace OzarkRecovery.Web.Controllers
 {
+    [Authorize]
     public class ProgramController : Controller
     {
         public ActionResult Index()

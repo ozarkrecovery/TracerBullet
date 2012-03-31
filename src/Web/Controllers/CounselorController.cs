@@ -7,6 +7,7 @@ using OzarkRecovery.Core.Domain.Model;
 
 namespace OzarkRecovery.Web.Controllers
 {
+    [Authorize]
     public class CounselorController : BaseController
     {
         public CounselorController(IRepository repository) : base(repository)
