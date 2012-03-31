@@ -57,7 +57,7 @@
   <ItemGroup>
     <Compile Include="DataAccess\Impl\Repository.cs" />
     <Compile Include="DataAccess\NHibernateHelper.cs" />
-    <Compile Include="Infrastructure\BootStrapper.cs" />
+    <Compile Include="DependencyResolution\BootStrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
