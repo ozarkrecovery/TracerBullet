@@ -8,21 +8,19 @@ using System.Linq.Expressions;
 
 namespace OzarkRecovery.Infrastructure.DataAccess.Impl
 {
-    public class InMemoryRepository<TSource> : IRepository where TSource:Entity
+    public class InMemoryRepository : IRepository
     {
-        private IList<User> users = new List<User>() { new User() { Password = "blah", Username = "tjosbon" } };
-
+        IList<User> users = new List<User>() { { new User() { Username = "tjosbon@ozarkrecovery.com", Password = "tjosbon" } },
+                                               { new User() { Username = "rtennyson@ozarkrecovery.com", Password = "rtennyson" } }
+                                             };
         public IQueryable<T> Find<T>(Expression<Func<T, bool>> predicate) where T : Entity
         {
             var type = typeof(T);
 
             if (type == typeof(User))
-                return (IQueryable<T>)users.AsQueryable<User>();
+                return (IQueryable<T>)users.Where<User>((Func<User, bool>)predicate.Compile()).AsQueryable<User>();
 
-            throw new ArgumentException(string.Format("Unknown type '{0}'", type));
+            throw new ArgumentException(string.Format("Invalid type {0}", type));
         }
-
-       
- 
     }
 }
