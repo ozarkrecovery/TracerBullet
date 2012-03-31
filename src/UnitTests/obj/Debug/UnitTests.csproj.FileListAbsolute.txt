@@ -1,0 +1,9 @@
+c:\users\robby\documents\visual studio 2010\Projects\OzarkRecovery\src\UnitTests\bin\Debug\OzarkRecovery.UnitTests.dll
+c:\users\robby\documents\visual studio 2010\Projects\OzarkRecovery\src\UnitTests\bin\Debug\OzarkRecovery.UnitTests.pdb
+c:\users\robby\documents\visual studio 2010\Projects\OzarkRecovery\src\UnitTests\obj\Debug\ResolveAssemblyReference.cache
+c:\users\robby\documents\visual studio 2010\Projects\OzarkRecovery\src\UnitTests\obj\Debug\OzarkRecovery.UnitTests.dll
+c:\users\robby\documents\visual studio 2010\Projects\OzarkRecovery\src\UnitTests\obj\Debug\OzarkRecovery.UnitTests.pdb
+c:\users\robby\documents\visual studio 2010\Projects\OzarkRecovery\src\UnitTests\bin\Debug\OzarkRecovery.Core.dll
+c:\users\robby\documents\visual studio 2010\Projects\OzarkRecovery\src\UnitTests\bin\Debug\OzarkRecovery.Infrastructure.dll
+c:\users\robby\documents\visual studio 2010\Projects\OzarkRecovery\src\UnitTests\bin\Debug\OzarkRecovery.Core.pdb
+c:\users\robby\documents\visual studio 2010\Projects\OzarkRecovery\src\UnitTests\bin\Debug\OzarkRecovery.Infrastructure.pdb

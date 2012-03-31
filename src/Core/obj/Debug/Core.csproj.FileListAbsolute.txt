@@ -1,0 +1,5 @@
+c:\users\robby\documents\visual studio 2010\Projects\OzarkRecovery\src\Core\obj\Debug\ResolveAssemblyReference.cache
+c:\users\robby\documents\visual studio 2010\Projects\OzarkRecovery\src\Core\bin\Debug\OzarkRecovery.Core.dll
+c:\users\robby\documents\visual studio 2010\Projects\OzarkRecovery\src\Core\bin\Debug\OzarkRecovery.Core.pdb
+c:\users\robby\documents\visual studio 2010\Projects\OzarkRecovery\src\Core\obj\Debug\OzarkRecovery.Core.dll
+c:\users\robby\documents\visual studio 2010\Projects\OzarkRecovery\src\Core\obj\Debug\OzarkRecovery.Core.pdb
