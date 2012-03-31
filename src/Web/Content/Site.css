@@ -105,11 +105,12 @@ html, body { height: 100%; }
 .loading { background: url('images/loading.gif') 50% 50% no-repeat; }
 
 
-#bird-selection span { display: block; float: left; padding: 2px 15px 1px 3px; margin-right: 5px; }
-#bird-selection span,
-#bird-selection select { font-size: .8em; border-radius: 4px; box-shadow: 1px 1px 5px #cfcfcf inset; border: 1px solid #cfcfcf; vertical-align: middle; background-color: #fef5e6; } 
-#bird-selection option { background-color: #fef5e6; } 
-#bird-selection option:hover { cursor: pointer; } 
+.person-list { list-style-type: none; margin: 0; padding: 0; border: 2px solid #bbb; border-top: 0 none; }
+.person-list li { padding: 10px 25px; border-top: solid 1px #bbb; }
+.person-list li:first-child { border-top: 2px solid #bbb; }
+.person-list li:nth-child(2n) { background: #fafafa; }
+.person-list-title { font-weight: bold; font-size: 1.1em; }
+.person-list-meta { font-size: .8em; }
 
 
 .editor-field { margin-bottom: 10px; }
@@ -124,23 +125,6 @@ input.input-validation-error, textarea.input-validation-error, select.input-vali
 
 
 a:visited.ui-state-default, .ui-widget-content a:visited.ui-state-default, .ui-widget-header a:visited.ui-state-default { color: #555; }
-
-.bp-button { outline: 0; margin:0 4px 0 0; padding: .4em 1em; text-decoration:none !important; cursor:pointer; position: relative; text-align: center; zoom: 1; }
-.bp-button .ui-icon { position: absolute; top: 50%; margin-top: -8px; left: 50%; margin-left: -8px; }
-a.bp-button { float:left; }
-button.bp-button { width:auto; overflow:visible; }
-.bp-button-icon-left { padding-left: 2.1em; }
-.bp-button-icon-right { padding-right: 2.1em; }
-.bp-button-icon-left .ui-icon { right: auto; left: .2em; margin-left: 0; }
-.bp-button-icon-right .ui-icon { left: auto; right: .2em; margin-left: 0; }
-.bp-button-icon-solo { display:block; width:8px; text-indent: -9999px; }
-.bp-buttonset { float:left; }
-.bp-buttonset .bp-button { float: left; }
-.bp-buttonset-single .bp-button,
-.bp-buttonset-multi .bp-button { margin-right: -1px;}
-.bp-toolbar { padding: .5em; margin: 0; }
-.bp-toolbar .bp-buttonset { margin-right:1.5em; padding-left: 1px; }
-.bp-toolbar .bp-button { font-size: 1em; } 
 
 
 @media only screen and (max-width: 1024px) {
