@@ -5,9 +5,9 @@ using System.Text;
 
 namespace OzarkRecovery.Core.Domain.Model
 {
-	public class Phase : Entity
-	{
-		public string Name { get; set; }
-
-	}
+    public class Step
+    {
+        public string Name { get; set; }
+        public IList<Document> Documents { get; set; }
+    }
 }

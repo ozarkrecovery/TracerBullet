@@ -12,7 +12,7 @@
         .counselor-list-meta { font-size: .8em; }
     </style>
 }
-
+<div class="greeting">Welcome @(ViewBag.User as Counselor).FullName</div>
 <h1>All Counselors</h1>
 <ul class="counselor-list">
 @foreach (Counselor counselor in ViewBag.Counselors)
