@@ -5,7 +5,7 @@ using System.Text;
 
 namespace OzarkRecovery.Core.Domain.Model
 {
-    public class Document : Entity
+    public class Assignment : Entity
     {
     }
 }

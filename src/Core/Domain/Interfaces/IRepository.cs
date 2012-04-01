@@ -10,5 +10,8 @@ namespace OzarkRecovery.Core.Domain.Interfaces
 	public interface IRepository
 	{
         IQueryable<T> Find<T>(Expression<Func<T, bool>> predicate) where T : Entity;
+        void Add<T>(T newentry) where T : Entity;
+        void Delete<T>(T entity) where T : Entity;
+        void Commit();
 	}
 }

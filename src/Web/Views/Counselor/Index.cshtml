@@ -9,7 +9,7 @@
 {
     <li>
         <div class="person-list-title">@(Html.ActionLink<CounselorController>(c => c.Show(counselor.Id), counselor.FullName))</div>
-        <div class="person-list-meta">@counselor.Programs.Count clients</div>
+        <div class="person-list-meta">@counselor.Treatments.Count clients</div>
     </li>
 }
 </ul>
