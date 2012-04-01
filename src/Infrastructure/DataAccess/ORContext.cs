@@ -43,6 +43,7 @@ namespace OzarkRecovery.Infrastructure.DataAccess
             //modelBuilder.Entity<Order>().HasKey(o => o.OrderId);
             //modelBuilder.Entity<Order>().Property(x => x.OrderId).HasColumnName("OrdID");
         }
+
     }
     public class AssignmentConfiguration : EntityTypeConfiguration<Assignment>
     {

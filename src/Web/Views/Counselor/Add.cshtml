@@ -11,7 +11,23 @@
     <div class="editor-label">@Html.LabelFor(x => x.FirstName)</div>
     <div class="editor-field">@Html.EditorFor(x => x.FirstName)</div>
 
+    <div class="editor-label">@Html.LabelFor(x => x.LastName)</div>
+    <div class="editor-field">@Html.EditorFor(x => x.LastName)</div>
+
+    <div class="editor-label">@Html.LabelFor(x => x.Username)</div>
+    <div class="editor-field">@Html.EditorFor(x => x.Username)</div>
+
+    <div class="editor-label">@Html.LabelFor(x => x.Password)</div>
+    <div class="editor-field">@Html.PasswordFor(x => x.Password)</div>
+
+    <div class="editor-field">
+        @Html.CheckBoxFor(x => x.IsAdmin)
+        @Html.LabelFor(x => x.IsAdmin)
+    </div>
+
     @Html.ValidationSummary()
 
-    @Html.SubmitButton("submit", "Add")
+    <p>
+        @Html.SubmitButton("submit", "Add")
+    </p>
 }
