@@ -5,9 +5,10 @@ using System.Text;
 
 namespace OzarkRecovery.Core.Domain.Model
 {
-    public class Screening: Entity
+    public enum MeetingType
     {
-        public DateTime Date { get; set; }
-        public bool IsCompleted { get; set; }
+        Group,
+        External,
+        Counseling
     }
 }

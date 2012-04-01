@@ -5,7 +5,10 @@ using System.Text;
 
 namespace OzarkRecovery.Core.Domain.Model
 {
-    public class Meeting
+    public class Meeting : Entity
     {
+        public MeetingType Type { get; set; }
+        public DateTime Date { get; set; }
+        public int Minutes { get; set; }
     }
 }
