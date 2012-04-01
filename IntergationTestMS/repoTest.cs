@@ -24,9 +24,8 @@ namespace IntergationTestMS
             BootStrapper.RegisterIoC();
         }
         [TestMethod]
-        public void TestMethod1()
+        public void TestRepositoryClient()
         {
-            //Database.SetInitializer<ORContext>(new DropCreateDatabaseAlways<ORContext>());
             IRepository repo = ObjectFactory.GetInstance<IRepository>();
             Client newClient = new Client();
             newClient.FirstName = "John";
@@ -43,7 +42,7 @@ namespace IntergationTestMS
             Assert.AreEqual(client.Count(), 1);
 
             client = repo.Find<Client>(c => c.Id >= 0);
-            Assert.AreEqual(client.Count(), 2);
+            Assert.AreEqual(client.Count(), 5);
         }
     }
 }
