@@ -28,5 +28,11 @@ namespace OzarkRecovery.Web.Controllers
             _repository.Find<Client>(x => x.Id == id).FirstOrDefault();
             return View();
         }
+
+        public ActionResult Add()
+        {
+            return View();
+        }
+
     }
 }

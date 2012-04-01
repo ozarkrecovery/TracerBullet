@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace OzarkRecovery.Core.Domain.Model
 {
@@ -12,9 +13,14 @@ namespace OzarkRecovery.Core.Domain.Model
         {
             get { return (FirstName + " " + LastName).Trim(); }
         }
-        public string CurrentPhase
+
+        public Step CurrentStep
         {
-            get { return "Not sure yet"; }
+            get
+            {
+                return null;
+            }
+
         }
     }
 }

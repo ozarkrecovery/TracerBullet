@@ -84,6 +84,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ClientAddViewModel.cs" />
     <Compile Include="Models\CounselorAddModel.cs" />
     <Compile Include="MvcExtensions.cs" />
     <Compile Include="Models\LoginViewModel.cs" />

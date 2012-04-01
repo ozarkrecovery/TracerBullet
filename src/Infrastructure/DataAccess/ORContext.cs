@@ -61,7 +61,7 @@ namespace OzarkRecovery.Infrastructure.DataAccess
             HasKey(c => c.Id);
             Property(p => p.FirstName).HasMaxLength(40);
             Property(p => p.FirstName).HasMaxLength(30);
-            Property(p => p.CurrentPhase).HasMaxLength(200);
+            Property(p => p.CurrentStep).HasMaxLength(200);
             Ignore(p => p.FullName);
         }
     }
