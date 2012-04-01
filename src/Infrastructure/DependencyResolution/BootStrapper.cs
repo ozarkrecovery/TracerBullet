@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using StructureMap;
 using OzarkRecovery.Core.Domain.Interfaces;
 using OzarkRecovery.Infrastructure.DataAccess.Impl;
@@ -18,7 +15,7 @@ namespace OzarkRecovery.Infrastructure.DependencyResolution
     {
         public static void RegisterIoC()
         {
-            Database.SetInitializer<ORContext>(new ORContextInitializer());
+            Database.SetInitializer(new ORContextInitializer());
             ObjectFactory.Initialize(x =>
             {
                 x.For<IRepository>().Use<Repository>();
@@ -79,7 +76,10 @@ namespace OzarkRecovery.Infrastructure.DependencyResolution
             });
 
             var strategy = ObjectFactory.GetNamedInstance<ITreatmentStrategy>("OzarkRecovery");
-            hulk.Treatments.Add(strategy.GenerateTreatment(hulk, jane));
+            var treatment = context.Treatment.Add(strategy.GenerateTreatment(hulk, jane));
+            treatment.Advance();
+            treatment.Advance();
+            treatment.Advance();
 
             context.SaveChanges();
 
