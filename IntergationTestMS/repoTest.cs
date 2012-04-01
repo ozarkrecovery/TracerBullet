@@ -31,8 +31,13 @@ namespace IntergationTestMS
             Client newClient = new Client();
             newClient.FirstName = "John";
             newClient.LastName = "Smith";
-
             repo.Add<Client>(newClient);
+
+            newClient = new Client();
+            newClient.FirstName = "Jane";
+            newClient.LastName = "Doe";
+            repo.Add<Client>(newClient);
+
             repo.Commit();
             var client = repo.Find<Client>(c => c.Id == 1);
             Assert.AreEqual(client.Count(), 1); 

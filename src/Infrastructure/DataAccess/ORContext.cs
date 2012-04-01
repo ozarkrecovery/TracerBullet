@@ -17,8 +17,6 @@ namespace OzarkRecovery.Infrastructure.DataAccess
         //private static string connString = @"Data Source=sql2k8b.appliedi.net;Initial Catalog=ozarkrecovery;Persist Security Info=True;User ID=ozark;Password=recovery";
         public DbSet<Assignment> Assignment { get; set; }
         public DbSet<Client> Client { get; set; }
-        public DbSet<ClientEvent> ClientEvent { get; set; }
-        public DbSet<ClientEventDesc> ClientEventDesc { get; set; }
         public DbSet<Counselor> Counselor { get; set; }
         public DbSet<Document> Document { get; set; }
         public DbSet<Meeting> Meeting { get; set; }
@@ -26,9 +24,7 @@ namespace OzarkRecovery.Infrastructure.DataAccess
         public DbSet<Screening> Screening { get; set; }
         public DbSet<Step> Step { get; set; }
         public DbSet<Survey> Survey { get; set; }
-
         public DbSet<Treatment> Treatment { get; set; }
-        public DbSet<User> User { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -63,13 +59,7 @@ namespace OzarkRecovery.Infrastructure.DataAccess
             Ignore(p => p.FullName);
         }
     }
-    public class ClientEventDescConfiguration : EntityTypeConfiguration<ClientEventDesc>
-    {
-        public ClientEventDescConfiguration()
-        {
-            HasKey(c => c.Id);
-        }
-    }
+
     public class CounselorConfiguration : EntityTypeConfiguration<Counselor>
     {
         public CounselorConfiguration()
@@ -78,13 +68,7 @@ namespace OzarkRecovery.Infrastructure.DataAccess
             Ignore(p => p.FullName);
         }
     }
-    public class ClientEventConfiguration : EntityTypeConfiguration<ClientEvent>
-    {
-        public ClientEventConfiguration()
-        {
-            HasKey(c => c.Id);
-        }
-    }
+
     public class DocumentConfiguration : EntityTypeConfiguration<Document>
     {
         public DocumentConfiguration()
@@ -130,13 +114,6 @@ namespace OzarkRecovery.Infrastructure.DataAccess
     public class TreatmentConfiguration : EntityTypeConfiguration<Treatment>
     {
         public TreatmentConfiguration()
-        {
-            HasKey(c => c.Id);
-        }
-    }
-    public class UserConfiguration : EntityTypeConfiguration<User>
-    {
-        public UserConfiguration()
         {
             HasKey(c => c.Id);
         }
