@@ -29,7 +29,7 @@ namespace OzarkRecovery.Web.Controllers
                                                  IsSupervisor = false,
                                                  Password = "abc",
                                                  UserName = "jadoe",
-                                                 Programs = new List<Program>()
+                                                 Treatments = new List<Treatment>()
                                           
                                              },
                                          new Counselor
@@ -40,7 +40,7 @@ namespace OzarkRecovery.Web.Controllers
                                                  IsSupervisor = true,
                                                  Password = "abc",
                                                  UserName = "jodoe",
-                                                 Programs = new List<Program>()
+                                                 Treatments = new List<Treatment>()
                                              },
                                          new Counselor
                                              {
@@ -50,7 +50,7 @@ namespace OzarkRecovery.Web.Controllers
                                                  IsSupervisor = true,
                                                  Password = "abc",
                                                  UserName = "jasmith",
-                                                 Programs = new List<Program>()
+                                                 Treatments = new List<Treatment>()
                                              },
                                          new Counselor
                                              {
@@ -60,7 +60,7 @@ namespace OzarkRecovery.Web.Controllers
                                                  IsSupervisor = true,
                                                  Password = "abc",
                                                  UserName = "josmith",
-                                                 Programs = new List<Program>()
+                                                 Treatments = new List<Treatment>()
                                              }
                                      };
 

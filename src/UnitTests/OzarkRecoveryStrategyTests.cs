@@ -5,6 +5,7 @@ using System.Text;
 using OzarkRecovery.Core.Domain.Interfaces;
 using OzarkRecovery.Core.Domain.Model;
 using OzarkRecovery.Core.Domain.Model.TreatmentStrategies;
+using NUnit.Framework;
 
 namespace OzarkRecovery.UnitTests
 {
@@ -25,6 +26,19 @@ namespace OzarkRecovery.UnitTests
         protected override void Act()
         {
             _treatment = _strategy.CreateTreatment(_client, _counselor);
+        }
+
+        [Test]
+        public void It_should_return_a_Treatment()
+        {
+            Assert.That(_treatment, Is.Not.Null);
+            Assert.That(_treatment, Is.InstanceOf<Treatment>());
+        }
+
+        [Test]
+        public void It_should_return_a_Treatment_with_5_steps()
+        {
+            Assert.That(_treatment.Steps.Count, Is.EqualTo(5));
         }
     }
 }
