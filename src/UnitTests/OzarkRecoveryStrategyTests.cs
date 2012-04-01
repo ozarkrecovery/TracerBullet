@@ -48,15 +48,15 @@ namespace OzarkRecovery.UnitTests
         }
 
         [Test]
-        public void It_should_return_a_first_step_with_0_phases()
+        public void It_should_return_a_first_step_with_null_phases()
         {
-            Assert.That(_treatment.Steps.First().Phases.Count, Is.EqualTo(6));
+            Assert.That(_treatment.Steps.First().Phases, Is.Null);
         }
 
         [Test]
-        public void It_should_return_a_first_step_with_0_surveys()
+        public void It_should_return_a_first_step_with_null_surveys()
         {
-            Assert.That(_treatment.Steps.First().Surveys.Count, Is.EqualTo(6));
+            Assert.That(_treatment.Steps.First().Surveys, Is.Null);
         }
         [Test]
         public void It_should_return_a_second_step_with_5_documents()
@@ -65,15 +65,15 @@ namespace OzarkRecovery.UnitTests
         }
 
         [Test]
-        public void It_should_return_a_second_step_with_0_phases()
+        public void It_should_return_a_second_step_with_null_phases()
         {
-            Assert.That(_treatment.Steps[1].Phases.Count, Is.EqualTo(6));
+            Assert.That(_treatment.Steps[1].Phases, Is.Null);
         }
 
         [Test]
-        public void It_should_return_a_second_step_with_0_surveys()
+        public void It_should_return_a_second_step_with_null_surveys()
         {
-            Assert.That(_treatment.Steps[1].Surveys.Count, Is.EqualTo(6));
+            Assert.That(_treatment.Steps[1].Surveys, Is.Null);
         }
 
     }
