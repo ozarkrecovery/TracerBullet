@@ -86,6 +86,8 @@
     </Compile>
     <Compile Include="Models\ClientAddViewModel.cs" />
     <Compile Include="Models\CounselorAddModel.cs" />
+    <Compile Include="Models\CounselorIndexModel.cs" />
+    <Compile Include="Models\CounselorShowModel.cs" />
     <Compile Include="MvcExtensions.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

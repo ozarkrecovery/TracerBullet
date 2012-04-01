@@ -1,19 +1,18 @@
-﻿@{
-    ViewBag.Title = ViewBag.CounselorName;
+﻿@model  OzarkRecovery.Web.Models.CounselorShowModel
+
+@{
+    ViewBag.Title = Model.CounselorName;
 }
 
-<h1>@ViewBag.CounselorName</h1>
+<h1>@Model.CounselorName</h1>
 
-<h3>Counselor's Active Programs</h3>
+<h3>Assigned Clients</h3>
 
 <ul class="person-list">
-@foreach (var treatment in ViewBag.Treatments) {
-    string clientName = treatment.ClientName;
-    int clientId = treatment.ClientId;
-    int treatmentNumber = treatment.TreatmentNumber;
+@foreach (var client in Model.AssignedClients) {
     <li>
-        <div class="person-list-title">@(Html.ActionLink<TreatmentController>(c => c.Show(clientId, treatmentNumber), clientName))</div>
-        <div class="person-list-meta">Current Step: @treatment.CurrentStep</div>
+        <div class="person-list-title">@(Html.ActionLink<TreatmentController>(c => c.Show(client.Id, client.TreatmentNumber), client.Name))</div>
+        <div class="person-list-meta">Current Step: @client.CurrentStep</div>
     </li>
 }
 </ul>

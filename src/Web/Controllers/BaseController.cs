@@ -22,9 +22,9 @@ namespace OzarkRecovery.Web.Controllers
             return _repository.Find<Counselor>(x => x.UserName == userid).FirstOrDefault();
         }
 
-        protected RedirectResult Redirect<T>(Expression<Action<T>> action) where T : Controller
+        protected RedirectResult Redirect<T>(Expression<Action<T>> action, object extraRouteValues = null) where T : Controller
         {
-            return Redirect(Request.RequestContext.GetUrl(action));
+            return Redirect(Request.RequestContext.GetUrl(action, extraRouteValues));
         }
 	}
 }
