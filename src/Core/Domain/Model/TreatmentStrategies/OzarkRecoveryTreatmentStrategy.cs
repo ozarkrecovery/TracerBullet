@@ -25,6 +25,7 @@ namespace OzarkRecovery.Core.Domain.Model.TreatmentStrategies
             steps.Add(new Step
             {
                 Name = "Intake/Screening",
+                StartDate = DateTime.Now,
                 Documents = new List<Document>
                 {
                     new Document {Name = "Screening Form/Routing Sheet"},
@@ -33,7 +34,7 @@ namespace OzarkRecovery.Core.Domain.Model.TreatmentStrategies
                     new Document {Name = "Mental Health Screening"},
                     new Document {Name = "Handbook"}
                 }
-            });
+                          });
             steps.Add(new Step
             {
                 Name = "Admission/Orientation",

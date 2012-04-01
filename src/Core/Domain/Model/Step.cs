@@ -11,5 +11,7 @@ namespace OzarkRecovery.Core.Domain.Model
         public IList<Document> Documents { get; set; }
         public IList<Phase> Phases { get; set; }
         public IList<Survey> Surveys { get; set; }
+        public DateTime? StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
     }
 }

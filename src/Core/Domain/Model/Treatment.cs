@@ -16,7 +16,7 @@ namespace OzarkRecovery.Core.Domain.Model
         {
             get
             {
-                var step = Steps.LastOrDefault();
+                var step = Steps.OrderBy(x => x.Id).Where(x => x.StartDate != null && x.EndDate == null).FirstOrDefault();
                 return step != null ? step.Name : "None";
             }
         }
