@@ -6,8 +6,7 @@ namespace OzarkRecovery.Core.Domain.Model
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        
-        public List<Program> Program { get; set; }
+        public List<Treatment> Treatments { get; set; }
 
         public string FullName
         {

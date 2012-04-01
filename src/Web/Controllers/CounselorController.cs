@@ -7,6 +7,7 @@ using OzarkRecovery.Core.Domain.Model;
 
 namespace OzarkRecovery.Web.Controllers
 {
+
     public class CounselorController : BaseController
     {
         public CounselorController(IRepository repository) : base(repository)
@@ -66,31 +67,34 @@ namespace OzarkRecovery.Web.Controllers
             return View();
         }
 
-        public ActionResult Show(string username)
+        public ActionResult Show(int id)
         {
             //var counselor = _repository.Find<Counselor>(x => x.UserName == username).SingleOrDefault();
             //if (counselor == null)
             //    return Redirect<CounselorController>(c => c.Index());
 
-            ViewBag.CounselorName = username.ToUpper();
-            ViewBag.Programs = new[]
+            ViewBag.CounselorName = "Counselor Number " + id;
+            ViewBag.Treatments = new[]
                 {
                     new ExpandoObject(),
                     new ExpandoObject(),
                     new ExpandoObject(),
                 };
 
-            ViewBag.Programs[0].Id = 1;
-            ViewBag.Programs[0].ClientName = "Jane Fonda";
-            ViewBag.Programs[0].CurrentPhase = "Treatment Planning";
+            ViewBag.Treatments[0].ClientId = 1;
+            ViewBag.Treatments[0].TreatmentNumber = 1;
+            ViewBag.Treatments[0].ClientName = "Jane Fonda";
+            ViewBag.Treatments[0].CurrentStep = "Treatment Planning";
 
-            ViewBag.Programs[1].Id = 2;
-            ViewBag.Programs[1].ClientName = "Tom Hanks";
-            ViewBag.Programs[1].CurrentPhase = "Intake / Screaning";
+            ViewBag.Treatments[1].ClientId = 2;
+            ViewBag.Treatments[1].TreatmentNumber = 1;
+            ViewBag.Treatments[1].ClientName = "Tom Hanks";
+            ViewBag.Treatments[1].CurrentStep = "Intake / Screaning";
 
-            ViewBag.Programs[2].Id = 3;
-            ViewBag.Programs[2].ClientName = "The Hulk";
-            ViewBag.Programs[2].CurrentPhase = "Treatment Implementation";
+            ViewBag.Treatments[2].ClientId = 3;
+            ViewBag.Treatments[2].TreatmentNumber = 3;
+            ViewBag.Treatments[2].ClientName = "The Hulk";
+            ViewBag.Treatments[2].CurrentStep = "Treatment Implementation";
 
             return View();
         }
