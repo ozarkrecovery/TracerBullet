@@ -57,6 +57,7 @@ namespace OzarkRecovery.Infrastructure.DataAccess
         {
             HasKey(c => c.Id);
             Property(p => p.FullName).HasMaxLength(50);
+            Ignore(p => p.FullName);
         }
     }
     public class ClientEventConfiguration : EntityTypeConfiguration<ClientEvent>
