@@ -1,0 +1,21 @@
+﻿@model OzarkRecovery.Web.Models.ClientIndexModel
+
+@{
+    ViewBag.Title = "All Clients";
+}
+
+
+<h1>All Clients</h1>
+
+<ul class="person-list">
+@foreach (var client in Model.Clients) {
+    <li>
+        <div class="person-list-title">@(Html.ActionLink<ClientController>(c => c.Show(client.Id), client.Name))</div>
+    </li>
+}
+</ul>
+
+<p>
+    @Html.ActionLink("Add a Client", "Add")
+</p>
+
