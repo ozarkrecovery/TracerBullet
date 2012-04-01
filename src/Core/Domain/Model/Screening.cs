@@ -5,7 +5,7 @@ using System.Text;
 
 namespace OzarkRecovery.Core.Domain.Model
 {
-    public class Screening
+    public class Screening : Entity
     {
     }
 }

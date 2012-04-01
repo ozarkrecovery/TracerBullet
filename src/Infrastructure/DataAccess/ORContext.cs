@@ -18,6 +18,7 @@ namespace OzarkRecovery.Infrastructure.DataAccess
         public DbSet<ClientEvent> ClientEvent { get; set; }
         public DbSet<ClientEventDesc> ClientEventDesc { get; set; }
         public DbSet<Counselor> Counselor { get; set; }
+        
         public DbSet<Phase> Phase { get; set;} 
         public DbSet<Program> Program { get; set; }
         public DbSet<Treatment> Treatment { get; set; }
@@ -40,6 +41,13 @@ namespace OzarkRecovery.Infrastructure.DataAccess
             //modelBuilder.Entity<Order>().Property(x => x.OrderId).HasColumnName("OrdID");
         }
     }
+    public class AssignmentConfiguration : EntityTypeConfiguration<Assignment>
+    {
+        public AssignmentConfiguration()
+        {
+            HasKey(c => c.Id);
+        }
+    }
     public class ClentConfiguration : EntityTypeConfiguration<Client>
     {
         public ClentConfiguration()
@@ -49,6 +57,14 @@ namespace OzarkRecovery.Infrastructure.DataAccess
             Property(p => p.FirstName).HasMaxLength(30);
             Property(p => p.CurrentPhase).HasMaxLength(200);
             Ignore(p => p.FullName);
+        }
+    }
+
+    public class ClientEventDescConfiguration : EntityTypeConfiguration<ClientEventDesc>
+    {
+        public ClientEventDescConfiguration()
+        {
+            HasKey(c => c.Id);
         }
     }
     public class CounselorConfiguration : EntityTypeConfiguration<Counselor>
@@ -67,6 +83,20 @@ namespace OzarkRecovery.Infrastructure.DataAccess
             HasKey(c => c.Id);
         }
     }
+    public class DocumentConfiguration : EntityTypeConfiguration<Document>
+    {
+        public DocumentConfiguration()
+        {
+            HasKey(c => c.Id);
+        }
+    }
+    public class MeetingConfiguration : EntityTypeConfiguration<Meeting>
+    {
+        public MeetingConfiguration()
+        {
+            HasKey(c => c.Id);
+        }
+    }
     public class PhaseConfiguration : EntityTypeConfiguration<Phase>
     {
         public PhaseConfiguration()
@@ -74,16 +104,37 @@ namespace OzarkRecovery.Infrastructure.DataAccess
             HasKey(c => c.Id);
         }
     }
-    public class ProgramConfiguration : EntityTypeConfiguration<Program>
+    public class ScreeningConfiguration : EntityTypeConfiguration<Screening>
     {
-        public ProgramConfiguration()
+        public ScreeningConfiguration()
         {
             HasKey(c => c.Id);
         }
     }
-    public class TreatmentConfiguration : EntityTypeConfiguration<Treatment>
+    public class StepConfiguration : EntityTypeConfiguration<Step>
+    {
+        public StepConfiguration()
+        {
+            HasKey(c => c.Id);
+        }
+    }
+    public class SurveyConfiguration : EntityTypeConfiguration<Survey>
+    {
+        public SurveyConfiguration()
+        {
+            HasKey(c => c.Id);
+        }
+    }
+    public class TreatmentConfiguration : EntityTypeConfiguration<Program>
     {
         public TreatmentConfiguration()
+        {
+            HasKey(c => c.Id);
+        }
+    }
+    public class UserConfiguration : EntityTypeConfiguration<User>
+    {
+        public UserConfiguration()
         {
             HasKey(c => c.Id);
         }
