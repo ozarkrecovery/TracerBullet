@@ -25,7 +25,6 @@ namespace OzarkRecovery.Infrastructure.DataAccess.Impl
         public void Add<T>(T newentry) where T : Entity
         {
             _context.Set<T>().Add(newentry);
-
         }
         public void Delete<T>(T entity) where T : Entity
         {
