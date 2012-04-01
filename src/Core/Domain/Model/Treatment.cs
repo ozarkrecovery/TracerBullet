@@ -11,13 +11,17 @@ namespace OzarkRecovery.Core.Domain.Model
         public virtual IList<Step> Steps { get; set; }
         public DateTime? StartDate { get; set; }
         public DateTime? EndDate { get; set; }
+        public bool IsCompleted { get; set; }
 
-        public string CurrentStep
+        public Step CurrentStep
         {
             get
             {
-                var step = Steps.OrderBy(x => x.Id).Where(x => x.StartDate != null && x.EndDate == null).FirstOrDefault();
-                return step != null ? step.Name : "None";
+                if (IsCompleted)
+                {
+                    return Step.Unassigned;
+                }
+                return Steps.Where(x => x.IsActive == true).FirstOrDefault();
             }
         }
     }

@@ -20,12 +20,13 @@ namespace OzarkRecovery.Core.Domain.Model.TreatmentStrategies
 
         private IList<Step> GenerateSteps()
         {
-            var stepCount = 5;
             var steps = new List<Step>();
             steps.Add(new Step
             {
+                Sequence = 1,
                 Name = "Intake/Screening",
                 StartDate = DateTime.Now,
+                IsActive = true,
                 Documents = new List<Document>
                 {
                     new Document {Name = "Screening Form/Routing Sheet"},
@@ -37,6 +38,7 @@ namespace OzarkRecovery.Core.Domain.Model.TreatmentStrategies
                           });
             steps.Add(new Step
             {
+                Sequence = 2,
                 Name = "Admission/Orientation",
                 Documents = new List<Document>
                 {
@@ -49,6 +51,7 @@ namespace OzarkRecovery.Core.Domain.Model.TreatmentStrategies
             });
             steps.Add(new Step
             {
+                Sequence = 3,
                 Name = "Treatment Planning",
                 Documents = new List<Document>
                 {
@@ -61,6 +64,7 @@ namespace OzarkRecovery.Core.Domain.Model.TreatmentStrategies
             });
             steps.Add(new Step
             {
+                Sequence = 4,
                 Name = "Ongoing Progress Reporting",
                 Documents = new List<Document>
                 {
@@ -78,6 +82,7 @@ namespace OzarkRecovery.Core.Domain.Model.TreatmentStrategies
             });
             steps.Add(new Step
             {
+                Sequence = 5,
                 Name = "Discharge/Followup",
                 Documents = new List<Document>
                 {

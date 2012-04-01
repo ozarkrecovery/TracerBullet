@@ -26,5 +26,12 @@ namespace OzarkRecovery.Web.Controllers
                 .ElementAt(treatmentNumber - 1);
             return View(treatment);
         }
+
+        public ActionResult Progress(int id)
+        {
+            var treatment = _repository.Get<Treatment>(x => x.Id == id);
+            return View();
+        }
+
     }
 }
