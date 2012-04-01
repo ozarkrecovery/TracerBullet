@@ -45,7 +45,7 @@ namespace OzarkRecovery.Web.Controllers
                             {
                                 Id = x.Client.Id,
                                 Name = x.Client.FullName,
-                                TreatmentNumber = counselor.Treatments.ToList().IndexOf(x),
+                                TreatmentNumber = counselor.Treatments.IndexOf(x) + 1,
                                 CurrentStep = x.CurrentStep
                             })
                         .ToArray()

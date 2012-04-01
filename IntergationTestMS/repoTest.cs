@@ -40,7 +40,10 @@ namespace IntergationTestMS
 
             repo.Commit();
             var client = repo.Find<Client>(c => c.Id == 1);
-            Assert.AreEqual(client.Count(), 1); 
+            Assert.AreEqual(client.Count(), 1);
+
+            client = repo.Find<Client>(c => c.Id >= 0);
+            Assert.AreEqual(client.Count(), 2);
         }
     }
 }
