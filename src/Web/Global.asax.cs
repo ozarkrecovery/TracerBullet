@@ -22,9 +22,10 @@ namespace Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRouteLowercase("counselor show", "counselor/{username}/{action}", new {controller = "counselor", action = "show"});
-            routes.MapRouteLowercase("supervisor show", "supervisor/{username}/{action}", new {controller = "supervisor", action = "show"});
-            routes.MapRouteLowercase("client show", "client/{username}/{action}", new {controller = "client", action = "show"});
+            routes.MapRouteLowercase("supervisor", "supervisor/{id}/{action}", new {controller = "supervisor", action = "show"});
+            routes.MapRouteLowercase("counselor", "counselor/{id}/{action}", new {controller = "counselor", action = "show"});
+            routes.MapRouteLowercase("treatment", "client/{clientId}/treatment-{treatmentNumber}/{action}", new {controller = "treatment", action = "show"});
+            routes.MapRouteLowercase("client", "client/{id}/{action}", new {controller = "client", action = "show"});
 
             routes.MapRouteLowercase("home about", "about", new {controller = "home", action = "about"});
 

@@ -44,15 +44,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Interfaces\ITreatmentStrategy.cs" />
     <Compile Include="Domain\Interfaces\IRepository.cs" />
+    <Compile Include="Domain\Model\Assignment.cs" />
     <Compile Include="Domain\Model\ClientEventDesc.cs" />
     <Compile Include="Domain\Model\Counselor.cs" />
+    <Compile Include="Domain\Model\Document.cs" />
     <Compile Include="Domain\Model\Entity.cs" />
     <Compile Include="Domain\Model\ClientEvent.cs" />
     <Compile Include="Domain\Model\Client.cs" />
+    <Compile Include="Domain\Model\Meeting.cs" />
     <Compile Include="Domain\Model\Phase.cs" />
     <Compile Include="Domain\Model\Program.cs" />
+    <Compile Include="Domain\Model\Screening.cs" />
+    <Compile Include="Domain\Model\Step.cs" />
+    <Compile Include="Domain\Model\Survey.cs" />
     <Compile Include="Domain\Model\Treatment.cs" />
+    <Compile Include="Domain\Model\TreatmentStrategies\OzarkRecoveryStrategy.cs" />
     <Compile Include="Domain\Model\User.cs" />
     <Compile Include="Services\ISecurityContextService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -69,6 +77,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

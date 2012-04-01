@@ -7,6 +7,7 @@ using OzarkRecovery.Core.Domain.Model;
 
 namespace OzarkRecovery.Web.Controllers
 {
+    [Authorize]
 	public class BaseController : Controller
 	{
 		protected IRepository _repository { get; private set; }

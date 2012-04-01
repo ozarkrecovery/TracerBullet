@@ -7,12 +7,13 @@
 <h3>Counselor's Active Programs</h3>
 
 <ul class="person-list">
-@foreach (var program in ViewBag.Programs) {
-    int programId = program.Id;
-    string clientName = program.ClientName;
+@foreach (var treatment in ViewBag.Treatments) {
+    string clientName = treatment.ClientName;
+    int clientId = treatment.ClientId;
+    int treatmentNumber = treatment.TreatmentNumber;
     <li>
-        <div class="person-list-title">@(Html.ActionLink<ProgramController>(c => c.Show(programId), clientName))</div>
-        <div class="person-list-meta">Current Phase: @program.CurrentPhase</div>
+        <div class="person-list-title">@(Html.ActionLink<TreatmentController>(c => c.Show(clientId, treatmentNumber), clientName))</div>
+        <div class="person-list-meta">Current Step: @treatment.CurrentStep</div>
     </li>
 }
 </ul>
