@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using OzarkRecovery.Core;
 using OzarkRecovery.Core.Domain.Model;
 using System.Data.Entity.ModelConfiguration;
 
@@ -15,7 +11,7 @@ namespace OzarkRecovery.Infrastructure.DataAccess
     {
         public ORContext() : base("OzarkRecovery")
         {
-            Database.Initialize(true);
+            Database.Initialize(false);
         }
 
         //private static string connString = @"Data Source=sql2k8b.appliedi.net;Initial Catalog=ozarkrecovery;Persist Security Info=True;User ID=ozark;Password=recovery";
@@ -82,7 +78,6 @@ namespace OzarkRecovery.Infrastructure.DataAccess
         public CounselorConfiguration()
         {
             HasKey(c => c.Id);
-            Property(p => p.FullName).HasMaxLength(50);
             Ignore(p => p.FullName);
         }
     }
