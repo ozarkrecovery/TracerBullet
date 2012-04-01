@@ -14,6 +14,7 @@ namespace OzarkRecovery.Infrastructure.DependencyResolution
 	{
 		public static void RegisterIoC()
 		{
+            Database.SetInitializer<ORContext>(new DropCreateDatabaseIfModelChanges<ORContext>());
 			ObjectFactory.Initialize(x =>
 			{
 				x.For<IRepository>().Use<Repository>();

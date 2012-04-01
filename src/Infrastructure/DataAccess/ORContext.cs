@@ -13,8 +13,7 @@ namespace OzarkRecovery.Infrastructure.DataAccess
 {
     public class ORContext : DbContext
     {
-        private static string connString = @"Data Source=sql2k8b.appliedi.net;Initial Catalog=Ozarkrecovery;Persist Security Info=True;User ID=ozark;Password=recovery";
-
+        //private static string connString = @"Data Source=sql2k8b.appliedi.net;Initial Catalog=ozarkrecovery;Persist Security Info=True;User ID=ozark;Password=recovery";
         public DbSet<Client> Client { get; set; }
         public DbSet<ClientEvent> ClientEvent { get; set; }
         public DbSet<ClientEventDesc> ClientEventDesc { get; set; }
@@ -23,20 +22,18 @@ namespace OzarkRecovery.Infrastructure.DataAccess
         public DbSet<Program> Program { get; set; }
         public DbSet<Treatment> Treatment { get; set; }
 
-
-
-        public ORContext() : base(connString)
-        { }
+        //public ORContext();// : base(connString)
+        //{ }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
-            modelBuilder.Entity<Client>().HasKey(c=>c.Id);
-            //modelBuilder.Entity<Client>()
+            //modelBuilder.Entity<Client>().HasKey(c=>c.Id);
+            ////modelBuilder.Entity<Client>()
 
-            modelBuilder.Entity<Treatment>().HasKey(t => t.Id);
+            //modelBuilder.Entity<Treatment>().HasKey(t => t.Id);
 
             //modelBuilder.Entity<Order>().Map(o => o.ToTable("Ord"));
             //modelBuilder.Entity<Order>().HasKey(o => o.OrderId);
@@ -50,6 +47,8 @@ namespace OzarkRecovery.Infrastructure.DataAccess
             HasKey(c => c.Id);
             Property(p => p.FirstName).HasMaxLength(40);
             Property(p => p.FirstName).HasMaxLength(30);
+            Property(p => p.CurrentPhase).HasMaxLength(200);
+            Ignore(p => p.FullName);
         }
     }
     public class CounselorConfiguration : EntityTypeConfiguration<Counselor>
