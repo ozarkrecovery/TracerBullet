@@ -6,15 +6,23 @@ namespace OzarkRecovery.Core.Domain.Model
 {
     public class Treatment : Entity
     {
-        public Client Client { get; set; }
-        public Counselor Counselor { get; set; }
-        public IList<Step> Steps { get; set; }
+        public virtual Client Client { get; set; }
+        public virtual Counselor Counselor { get; set; }
+        public virtual IList<Step> Steps { get; set; }
         public DateTime? StartDate { get; set; }
         public DateTime? EndDate { get; set; }
+        public bool IsCompleted { get; set; }
 
-        public string CurrentStep
+        public Step CurrentStep
         {
-            get { return Steps.Last().Name; }
+            get
+            {
+                if (IsCompleted)
+                {
+                    return Step.Unassigned;
+                }
+                return Steps.Where(x => x.IsActive == true).FirstOrDefault();
+            }
         }
     }
 }

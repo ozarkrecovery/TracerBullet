@@ -1,4 +1,3 @@
-
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +10,7 @@ using OzarkRecovery.Infrastructure.DataAccess;
 using OzarkRecovery.Core.Services;
 using OzarkRecovery.Infrastructure.Services;
 using OzarkRecovery.Core.Domain.Model;
+using OzarkRecovery.Core.Domain.Model.TreatmentStrategies;
 
 namespace OzarkRecovery.Infrastructure.DependencyResolution
 {
@@ -24,6 +24,11 @@ namespace OzarkRecovery.Infrastructure.DependencyResolution
                 x.For<IRepository>().Use<Repository>();
                 x.For<DbContext>().Use<ORContext>();
                 x.For<ISecurityContextService>().Use<SecurityContextService>();
+                x.For<ITreatmentStrategy>().AddInstances(y =>
+                    {
+                        y.Type<OzarkRecoveryTreatmentStrategy>().Named("OzarkRecovery");
+                        //add more strategy implementations for different facilities
+                    });
             });
         }
     }
@@ -41,7 +46,8 @@ namespace OzarkRecovery.Infrastructure.DependencyResolution
                 IsSupervisor = true,
                 IsActive = true
             });
-            context.Counselor.Add(new Counselor
+
+            var jane = context.Counselor.Add(new Counselor
             {
                 FirstName = "Jane",
                 LastName = "Doe",
@@ -50,7 +56,33 @@ namespace OzarkRecovery.Infrastructure.DependencyResolution
                 IsSupervisor = false,
                 IsActive = true
             });
+
+            context.Client.Add(new Client
+            {
+                Id = 123,
+                FirstName = "Jane",
+                LastName = "Fonda",
+            });
+
+            context.Client.Add(new Client
+            {
+                Id = 124,
+                FirstName = "Tom",
+                LastName = "Hanks",
+            });
+
+            var hulk = context.Client.Add(new Client
+            {
+                Id = 125,
+                FirstName = "The",
+                LastName = "Hulk",
+            });
+
+            var strategy = ObjectFactory.GetNamedInstance<ITreatmentStrategy>("OzarkRecovery");
+            hulk.Treatments.Add(strategy.GenerateTreatment(hulk, jane));
+
             context.SaveChanges();
+
             base.Seed(context);
         }
     }

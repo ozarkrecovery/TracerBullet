@@ -10,8 +10,10 @@ namespace OzarkRecovery.Web.Controllers
 
     public class ClientController : BaseController
     {
-        public ClientController(IRepository repository) : base(repository)
+        private ITreatmentStrategy _treatmentStrategy { get; set; }
+        public ClientController(IRepository repository, ITreatmentStrategy strategy) : base(repository)
         {
+            _treatmentStrategy = strategy;
         }
 
         public ActionResult Index()
