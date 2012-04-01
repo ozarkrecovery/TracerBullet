@@ -14,14 +14,20 @@ namespace OzarkRecovery.Infrastructure.DataAccess
     public class ORContext : DbContext
     {
         //private static string connString = @"Data Source=sql2k8b.appliedi.net;Initial Catalog=ozarkrecovery;Persist Security Info=True;User ID=ozark;Password=recovery";
+        public DbSet<Assignment> Assignment { get; set; }
         public DbSet<Client> Client { get; set; }
         public DbSet<ClientEvent> ClientEvent { get; set; }
         public DbSet<ClientEventDesc> ClientEventDesc { get; set; }
         public DbSet<Counselor> Counselor { get; set; }
-        
-        public DbSet<Phase> Phase { get; set;} 
-        public DbSet<Program> Program { get; set; }
+        public DbSet<Document> Document { get; set; }
+        public DbSet<Meeting> Meeting { get; set; }
+        public DbSet<Phase> Phase { get; set; } 
+        public DbSet<Screening> Screening { get; set; }
+        public DbSet<Step> Step { get; set; }
+        public DbSet<Survey> Survey { get; set; }
+
         public DbSet<Treatment> Treatment { get; set; }
+        public DbSet<User> User { get; set; }
 
         //public ORContext();// : base(connString)
         //{ }
@@ -59,7 +65,6 @@ namespace OzarkRecovery.Infrastructure.DataAccess
             Ignore(p => p.FullName);
         }
     }
-
     public class ClientEventDescConfiguration : EntityTypeConfiguration<ClientEventDesc>
     {
         public ClientEventDescConfiguration()
@@ -125,7 +130,7 @@ namespace OzarkRecovery.Infrastructure.DataAccess
             HasKey(c => c.Id);
         }
     }
-    public class TreatmentConfiguration : EntityTypeConfiguration<Program>
+    public class TreatmentConfiguration : EntityTypeConfiguration<Treatment>
     {
         public TreatmentConfiguration()
         {
