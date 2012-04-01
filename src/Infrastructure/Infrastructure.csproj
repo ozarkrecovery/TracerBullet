@@ -51,7 +51,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataAccess\Impl\InMemoryRepository.cs" />
     <Compile Include="DataAccess\Impl\Repository.cs" />
     <Compile Include="DataAccess\ORContext.cs" />
     <Compile Include="DependencyResolution\BootStrapper.cs" />
