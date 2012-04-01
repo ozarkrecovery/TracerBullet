@@ -14,6 +14,8 @@ namespace OzarkRecovery.Infrastructure.DataAccess
             Database.Initialize(false);
         }
 
+        // currently Entity Framework defaults to the local sqlexpress server.
+        // By changing the commented out string it is possible to a different server.
         //private static string connString = @"Data Source=sql2k8b.appliedi.net;Initial Catalog=ozarkrecovery;Persist Security Info=True;User ID=ozark;Password=recovery";
         public DbSet<Assignment> Assignment { get; set; }
         public DbSet<Client> Client { get; set; }
