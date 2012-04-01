@@ -46,10 +46,63 @@ namespace OzarkRecovery.Core.Domain.Model.TreatmentStrategies
                     new Document {Name = "Admissions Report"}
                 }
             });
-            steps.Add(new Step { Name = "Treatment Planning" });
-            steps.Add(new Step { Name = "Ongoing Progress Reporting" });
-            steps.Add(new Step { Name = "Discharge/Followup" });
+            steps.Add(new Step
+            {
+                Name = "Treatment Planning",
+                Documents = new List<Document>
+                {
+                    new Document {Name = "Treatment Checklist"},
+                    new Document {Name = "Master Treatment Plan"},
+                    new Document {Name = "SNAPP Note"},
+                    new Document {Name = "ASI"},
+                    new Document {Name = "Doctor Letters"}
+                }
+            });
+            steps.Add(new Step
+            {
+                Name = "Ongoing Progress Reporting",
+                Documents = new List<Document>
+                {
+                    new Document {Name = "Progress/Communication Notes"},
+                    new Document {Name = "Group Notes"},
+                    new Document {Name = "Court Report"}
+                },
+                Phases = new List<Phase>
+                {
+                    GeneratePhase("Phase I"),
+                    GeneratePhase("Phase II"),
+                    GeneratePhase("Phase III"),
+                    GeneratePhase("Phase IV")
+                }
+            });
+            steps.Add(new Step
+            {
+                Name = "Discharge/Followup",
+                Documents = new List<Document>
+                {
+                    new Document {Name = "Progress/Communication Notes"},
+                    new Document {Name = "Group Notes"},
+                    new Document {Name = "Court Report"}
+                },
+                Surveys = new List<Survey>
+                {
+                    new Survey{ Name="30 Day Followup"},                
+                    new Survey{ Name="6 Month Followup"},
+                    new Survey{ Name="12 Month Followup"}
+                }
+            });
             return steps;
+        }
+
+        private Phase GeneratePhase(string name)
+        {
+            return new Phase
+            {
+                Name = name,
+                Meetings = new List<Meeting>(),
+                Screenings = new List<Screening>(),
+                Assignments = new List<Assignment>()
+            };
         }
     }
 }
