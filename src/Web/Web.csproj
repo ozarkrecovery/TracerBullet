@@ -87,6 +87,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ClientAddModel.cs" />
+    <Compile Include="Models\ClientIndexModel.cs" />
     <Compile Include="Models\CounselorAddModel.cs" />
     <Compile Include="Models\CounselorIndexModel.cs" />
     <Compile Include="Models\CounselorShowModel.cs" />
@@ -184,6 +186,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Counselor\Add.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Client\Add.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Client\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Treatment\Show.cshtml" />

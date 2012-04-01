@@ -15,14 +15,19 @@ namespace OzarkRecovery.Core.Domain.Model
 
         public Step CurrentStep
         {
-            get
-            {
-                if (IsCompleted)
-                {
-                    return Step.Unassigned;
-                }
-                return Steps.Where(x => x.IsActive == true).FirstOrDefault();
-            }
+            get { return IsCompleted ? Step.Unassigned : Steps.Where(x => x.IsActive).FirstOrDefault(); }
+        }
+
+        public void Advance()
+        {
+            if (CurrentStep == Step.Unassigned) return;
+
+            var nextStep = Steps.SingleOrDefault(x => x.Sequence == CurrentStep.Sequence + 1);
+
+            CurrentStep.End();
+
+            if (nextStep != null)
+                nextStep.Begin();
         }
     }
 }
