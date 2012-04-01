@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Dynamic;
 using System.Linq;
 using System.Web.Mvc;
 using OzarkRecovery.Core.Domain.Interfaces;
@@ -33,22 +31,7 @@ namespace OzarkRecovery.Web.Controllers
         {
             var counselor = _repository.Find<Counselor>(x => x.Id == id).SingleOrDefault();
             if (counselor == null)
-                return Redirect<CounselorController>(c => c.Index());
-
-            //ViewBag.Treatments[0].ClientId = 1;
-            //ViewBag.Treatments[0].TreatmentNumber = 1;
-            //ViewBag.Treatments[0].ClientName = "Jane Fonda";
-            //ViewBag.Treatments[0].CurrentStep = "Treatment Planning";
-
-            //ViewBag.Treatments[1].ClientId = 2;
-            //ViewBag.Treatments[1].TreatmentNumber = 1;
-            //ViewBag.Treatments[1].ClientName = "Tom Hanks";
-            //ViewBag.Treatments[1].CurrentStep = "Intake / Screaning";
-
-            //ViewBag.Treatments[2].ClientId = 3;
-            //ViewBag.Treatments[2].TreatmentNumber = 3;
-            //ViewBag.Treatments[2].ClientName = "The Hulk";
-            //ViewBag.Treatments[2].CurrentStep = "Treatment Implementation";
+                return Redirect<CounselorController>(c => c.Index(), new {id = ""});
 
             var user = WhoAmI();
 
@@ -62,7 +45,7 @@ namespace OzarkRecovery.Web.Controllers
                             {
                                 Id = x.Client.Id,
                                 Name = x.Client.FullName,
-                                TreatmentNumber = counselor.Treatments.IndexOf(x),
+                                TreatmentNumber = counselor.Treatments.ToList().IndexOf(x),
                                 CurrentStep = x.CurrentStep
                             })
                         .ToArray()
@@ -72,6 +55,36 @@ namespace OzarkRecovery.Web.Controllers
         public ActionResult Add()
         {
             return View(new CounselorAddModel());
+        }
+
+        [HttpPost]
+        public ActionResult Add(CounselorAddModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (model.Password != model.ConfirmPassword)
+                    ModelState.AddModelError("ConfirmPassword", "Passwords must match");
+                else
+                {
+                    _repository.Add(new Counselor
+                        {
+                            FirstName = model.FirstName,
+                            LastName = model.LastName,
+                            UserName = model.Username,
+                            Password = model.Password,
+                            IsSupervisor = model.IsAdmin,
+                            IsActive = true,
+                        });
+
+                    _repository.Commit();
+
+                    return Redirect<CounselorController>(c => c.Index());
+                }
+            }
+
+            model.Password = model.ConfirmPassword = "";
+
+            return View(model);
         }
     }
 }
