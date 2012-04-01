@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="289d35ff-4037-4e84-9f01-89a149af6f66" name="darryl@TRADER 2012-03-31 18:57:05" runUser="TRADER\darryl" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="e3187d78-b5e1-443a-af98-dc072e6307c5">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment userDeploymentRoot="C:\Users\darryl\TracerBullet\TestResults" useDefaultDeploymentRoot="false" enabled="false" runDeploymentRoot="darryl_TRADER 2012-03-31 18_57_05">
+      <DeploymentItem filename="C:\Users\darryl\TracerBullet\src\Infrastructure\bin\Debug\OzarkRecovery.Infrastructure.dll" />
+      <DeploymentItem filename="C:\Users\darryl\TracerBullet\packages\EntityFramework.4.3.1\lib\net40\EntityFramework.dll" />
+      <DeploymentItem filename="C:\Users\darryl\TracerBullet\packages\structuremap.2.6.3\lib\StructureMap.dll" />
+      <DeploymentItem filename="C:\Users\darryl\TracerBullet\src\Core\bin\Debug\OzarkRecovery.Core.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-03-31T18:57:05.5876529-05:00" queuing="2012-03-31T18:57:07.9447878-05:00" start="2012-03-31T18:57:08.3758124-05:00" finish="2012-03-31T19:02:33.3644007-05:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="1" executed="1" error="0" failed="0" timeout="0" aborted="1" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="TRADER" outcome="Error" timestamp="2012-03-31T19:02:33.3604005-05:00">
+        <Text>Test host process exited unexpectedly.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="TestMethod1" storage="c:\users\darryl\tracerbullet\intergationtestms\bin\debug\intergationtestms.dll" id="982a5edc-ccfe-6feb-6c65-68714ae12770">
+      <Execution id="913a7147-0449-4537-a56a-be78e86a8925" />
+      <TestMethod codeBase="C:/Users/darryl/TracerBullet/IntergationTestMS/bin/Debug/IntergationTestMS.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="IntergationTestMS.repoTest, IntergationTestMS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod1" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="982a5edc-ccfe-6feb-6c65-68714ae12770" executionId="913a7147-0449-4537-a56a-be78e86a8925" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="913a7147-0449-4537-a56a-be78e86a8925" testId="982a5edc-ccfe-6feb-6c65-68714ae12770" testName="TestMethod1" computerName="TRADER" duration="00:05:24.6055664" startTime="2012-03-31T18:57:08.7588343-05:00" endTime="2012-03-31T19:02:33.3644007-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Aborted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="913a7147-0449-4537-a56a-be78e86a8925">
+    </UnitTestResult>
+  </Results>
+</TestRun>
