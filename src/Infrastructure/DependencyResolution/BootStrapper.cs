@@ -1,3 +1,4 @@
+
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,12 +17,14 @@ namespace OzarkRecovery.Infrastructure.DependencyResolution
 	{
 		public static void RegisterIoC()
 		{
+            Database.SetInitializer<ORContext>(new DropCreateDatabaseIfModelChanges<ORContext>());
 			ObjectFactory.Initialize(x =>
 			{
-				x.For<IRepository>().Use<InMemoryRepository>();
+				x.For<IRepository>().Use<Repository>();
 			    x.For<DbContext>().Use<ORContext>();
                 x.For<ISecurityContextService>().Use<SecurityContextService>();
 			});
 		}
 	}
 }
+
