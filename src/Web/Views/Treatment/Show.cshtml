@@ -11,7 +11,10 @@
     <div class="editor-field">
         @Html.DisplayFor(model => model.CurrentStep.Name)
     </div>
-    @{Html.RenderAction<DocumentController>(c => c.Widget(Model.CurrentStep.Documents));}
+
+    <div>@{Html.RenderAction<DocumentController>(c => c.Widget(Model.CurrentStep.Documents));}</div
+    <div>@{Html.RenderAction<PhaseController>(c => c.Widget(Model.CurrentStep.Phases));}</div>
+    <div>@{Html.RenderAction<SurveyController>(c => c.Widget(Model.CurrentStep.Surveys));}</div>
 <div class="display-label">
     StartDate</div>
     <div class="display-field">
