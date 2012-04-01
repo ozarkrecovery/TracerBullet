@@ -40,6 +40,7 @@ namespace OzarkRecovery.Infrastructure.DataAccess
         public AssignmentConfiguration()
         {
             HasKey(c => c.Id);
+            Property(p => p.Name).HasMaxLength(40);
         }
     }
     public class ClentConfiguration : EntityTypeConfiguration<Client>
@@ -59,6 +60,10 @@ namespace OzarkRecovery.Infrastructure.DataAccess
         {
             HasKey(c => c.Id);
             Ignore(p => p.FullName);
+            Property(p => p.FirstName).HasMaxLength(40);
+            Property(p => p.FirstName).HasMaxLength(30);
+            Property(p => p.Password).HasMaxLength(30);
+            Property(p => p.UserName).HasMaxLength(30);
         }
     }
 
@@ -67,6 +72,7 @@ namespace OzarkRecovery.Infrastructure.DataAccess
         public DocumentConfiguration()
         {
             HasKey(c => c.Id);
+            Property(p => p.Name).HasMaxLength(30);
         }
     }
     public class MeetingConfiguration : EntityTypeConfiguration<Meeting>
@@ -81,6 +87,7 @@ namespace OzarkRecovery.Infrastructure.DataAccess
         public PhaseConfiguration()
         {
             HasKey(c => c.Id);
+            Property(p => p.Name).HasMaxLength(50);
         }
     }
     public class ScreeningConfiguration : EntityTypeConfiguration<Screening>
@@ -95,6 +102,7 @@ namespace OzarkRecovery.Infrastructure.DataAccess
         public StepConfiguration()
         {
             HasKey(c => c.Id);
+            Property(p => p.Name).HasMaxLength(50);
         }
     }
     public class SurveyConfiguration : EntityTypeConfiguration<Survey>
@@ -102,6 +110,7 @@ namespace OzarkRecovery.Infrastructure.DataAccess
         public SurveyConfiguration()
         {
             HasKey(c => c.Id);
+            Property(p => p.Name).HasMaxLength(50);
         }
     }
     public class TreatmentConfiguration : EntityTypeConfiguration<Treatment>
