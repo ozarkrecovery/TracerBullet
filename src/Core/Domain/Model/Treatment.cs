@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace OzarkRecovery.Core.Domain.Model
 {
@@ -12,5 +11,10 @@ namespace OzarkRecovery.Core.Domain.Model
         public IList<Step> Steps { get; set; }
         public DateTime? StartDate { get; set; }
         public DateTime? EndDate { get; set; }
+
+        public string CurrentStep
+        {
+            get { return Steps.Last().Name; }
+        }
     }
 }

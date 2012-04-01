@@ -17,6 +17,9 @@ namespace OzarkRecovery.Web.Models
         [Required]
         public string Password { get; set; }
 
+        [Required, Display(Description = "Confirm Password")]
+        public string ConfirmPassword { get; set; }
+
         [Display(Description = "Administrator")]
         public bool IsAdmin { get; set; }
     }
