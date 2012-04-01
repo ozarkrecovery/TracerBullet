@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.ComponentModel.DataAnnotations;
 
 namespace OzarkRecovery.Core.Domain.Model
 {
@@ -17,6 +19,15 @@ namespace OzarkRecovery.Core.Domain.Model
         public string FullName
         {
             get { return (FirstName + " " + LastName).Trim(); }
+        }
+
+        public Step CurrentStep
+        {
+            get
+            {
+                return null;
+            }
+
         }
     }
 }
