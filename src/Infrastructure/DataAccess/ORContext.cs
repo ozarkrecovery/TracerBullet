@@ -30,15 +30,6 @@ namespace OzarkRecovery.Infrastructure.DataAccess
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-
-            //modelBuilder.Entity<Client>().HasKey(c=>c.Id);
-            ////modelBuilder.Entity<Client>()
-
-            //modelBuilder.Entity<Treatment>().HasKey(t => t.Id);
-
-            //modelBuilder.Entity<Order>().Map(o => o.ToTable("Ord"));
-            //modelBuilder.Entity<Order>().HasKey(o => o.OrderId);
-            //modelBuilder.Entity<Order>().Property(x => x.OrderId).HasColumnName("OrdID");
         }
 
     }
