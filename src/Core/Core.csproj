@@ -60,7 +60,7 @@
     <Compile Include="Domain\Model\Step.cs" />
     <Compile Include="Domain\Model\Survey.cs" />
     <Compile Include="Domain\Model\Treatment.cs" />
-    <Compile Include="Domain\Model\TreatmentStrategies\OzarkRecoveryStrategy.cs" />
+    <Compile Include="Domain\Model\TreatmentStrategies\OzarkRecoveryTreatmentStrategy.cs" />
     <Compile Include="Domain\Model\User.cs" />
     <Compile Include="Services\ISecurityContextService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

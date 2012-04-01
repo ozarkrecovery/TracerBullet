@@ -8,6 +8,6 @@ namespace OzarkRecovery.Core.Domain.Interfaces
 {
     public interface ITreatmentStrategy
     {
-        Treatment CreateTreatment(Client client, Counselor counselor);
+        Treatment GenerateTreatment(Client client, Counselor counselor);
     }
 }
