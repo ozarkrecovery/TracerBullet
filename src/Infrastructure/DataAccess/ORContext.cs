@@ -29,9 +29,6 @@ namespace OzarkRecovery.Infrastructure.DataAccess
         public DbSet<Treatment> Treatment { get; set; }
         public DbSet<User> User { get; set; }
 
-        //public ORContext();// : base(connString)
-        //{ }
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
