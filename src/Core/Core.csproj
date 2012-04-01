@@ -55,7 +55,6 @@
     <Compile Include="Domain\Model\Client.cs" />
     <Compile Include="Domain\Model\Meeting.cs" />
     <Compile Include="Domain\Model\Phase.cs" />
-    <Compile Include="Domain\Model\Program.cs" />
     <Compile Include="Domain\Model\Screening.cs" />
     <Compile Include="Domain\Model\Step.cs" />
     <Compile Include="Domain\Model\Survey.cs" />

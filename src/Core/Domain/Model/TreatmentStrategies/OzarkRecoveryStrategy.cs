@@ -21,7 +21,11 @@ namespace OzarkRecovery.Core.Domain.Model.TreatmentStrategies
         private IList<Step> GenerateSteps()
         {
             var steps = new List<Step>();
-
+            steps.Add(new Step {Name = "Intake/Screening" });
+            steps.Add(new Step {Name = "Admission/Orientation" });
+            steps.Add(new Step {Name = "Treatment Planning" });
+            steps.Add(new Step {Name = "Ongoing Progress Reporting" });
+            steps.Add(new Step {Name = "Discharge/Followup" });
             return steps;
         }
     }
