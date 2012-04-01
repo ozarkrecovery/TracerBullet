@@ -13,7 +13,7 @@ namespace OzarkRecovery.Web.Controllers
         public SurveyController(IRepository repository) : base(repository) { }
         
         [ChildActionOnly]
-        public ActionResult Widget(IList<Document> surveys)
+        public ActionResult Widget(IList<Survey> surveys)
         {
             return View(surveys);
         }
