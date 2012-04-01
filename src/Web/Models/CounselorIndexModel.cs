@@ -1,20 +1,18 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using OzarkRecovery.Core.Domain.Model;
 
 namespace OzarkRecovery.Web.Models
 {
     public class CounselorIndexModel
     {
-        public Counselor User { get; private set; }
-        public IList<Counselor> Counselors { get; private set; }
+        public bool IsAdmin { get; set; }
+        public IEnumerable<CounselorModel> Counselors { get; set; }
 
-        public CounselorIndexModel(Counselor user, IList<Counselor> counselors)
+        public class CounselorModel
         {
-            User = user;
-            Counselors = counselors;
+            public int Id { get; set; }
+            public string Name { get; set; }
+            public int ActiveClients { get; set; }
         }
     }
 }
