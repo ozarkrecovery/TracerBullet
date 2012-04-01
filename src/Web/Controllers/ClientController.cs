@@ -41,6 +41,7 @@ namespace OzarkRecovery.Web.Controllers
 
         public ActionResult Add()
         {
+            ViewBag.Counselors = _repository.Find<Counselor>(c => c.IsActive).ToList();
             return View();
         }
 
@@ -49,12 +50,14 @@ namespace OzarkRecovery.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                _repository.Add(new Client
+                var client = new Client
                 {
                     FirstName = model.FirstName,
                     LastName = model.LastName
-                });
+                };
+                client.Treatments.Add(_treatmentStrategy.GenerateTreatment(client,_repository.Get<Counselor>(model.Counselor)));
 
+                _repository.Add(client);
                 _repository.Commit();
 
                 return Redirect<ClientController>(c => c.Index());
