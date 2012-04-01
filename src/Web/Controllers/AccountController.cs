@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using OzarkRecovery.Core.Domain.Interfaces;
 using OzarkRecovery.Core.Domain.Model;
@@ -11,14 +9,14 @@ namespace OzarkRecovery.Web.Controllers
 {
     public class AccountController : Controller
     {
-        private IRepository _repository = null;
-        private ISecurityContextService _securityContext = null;
-
         public AccountController(IRepository repository, ISecurityContextService securityContext)
         {
             _repository = repository;
             _securityContext = securityContext;
         }
+
+        private readonly IRepository _repository;
+        private readonly ISecurityContextService _securityContext;
 
         public ActionResult LogOn()
         {
@@ -28,8 +26,7 @@ namespace OzarkRecovery.Web.Controllers
         [HttpPost]
         public ActionResult LogOn(LoginViewModel login)
         {
-            User user = _repository.Find<User>(x => x.Username.Equals(login.Email))
-                                  .FirstOrDefault();
+            var user = _repository.Find<Counselor>(x => x.UserName == login.Email).SingleOrDefault();
             if (null == user)
             {
                 login.ErrorMessage = "Email not recognized. Please note email is case sensitive.";
@@ -42,11 +39,9 @@ namespace OzarkRecovery.Web.Controllers
                 return View(login);
             }
 
-            _securityContext.Create(user.Username);
+            _securityContext.Create(user.UserName);
 
             return Redirect(login.ReturnUrl);
-                             
         }
-
     }
 }
