@@ -1,0 +1,43 @@
+﻿@model OzarkRecovery.Core.Domain.Model.Client
+
+@{
+    ViewBag.Title = "Add a Client";
+}
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Add a Client</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FirstName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FirstName)
+            @Html.ValidationMessageFor(model => model.FirstName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LastName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastName)
+            @Html.ValidationMessageFor(model => model.LastName)
+        </div>
+
+        <div class="editor-label">
+           Assign to Counselor
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Counselor", (ViewBag.Counselors as IList<Counselor>).Select(x => new SelectListItem(){ Value = x.Id.ToString(), Text = x.FullName}))
+            @Html.ValidationMessageFor(model => model.LastName)
+        </div>
+        <p>
+            <input type="submit" value="Add" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

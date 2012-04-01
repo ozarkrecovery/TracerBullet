@@ -22,9 +22,10 @@ namespace Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRouteLowercase("counselor show", "counselor/{username}/{action}", new {controller = "counselor", action = "show"});
-            routes.MapRouteLowercase("supervisor show", "supervisor/{username}/{action}", new {controller = "supervisor", action = "show"});
-            routes.MapRouteLowercase("patient show", "patient/{username}/{action}", new {controller = "patient", action = "show"});
+            routes.MapRouteLowercase("supervisor", "supervisor/{id}/{action}", new {controller = "supervisor", action = "show"}, new {id = @"^\d+$"});
+            routes.MapRouteLowercase("counselor", "counselor/{id}/{action}", new {controller = "counselor", action = "show"}, new {id = @"^\d+$"});
+            routes.MapRouteLowercase("treatment", "client/{clientId}/treatment-{treatmentNumber}/{action}", new {controller = "treatment", action = "show"}, new {clientId = @"^\d+$"});
+            routes.MapRouteLowercase("client", "client/{id}/{action}", new {controller = "client", action = "show"}, new {id = @"^\d+$"});
 
             routes.MapRouteLowercase("home about", "about", new {controller = "home", action = "about"});
 
@@ -37,9 +38,9 @@ namespace Web
             Application["version"] = !string.IsNullOrEmpty(productionVersion) ? productionVersion : Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
             AreaRegistration.RegisterAllAreas();
-        	BootStrapper.RegisterIoC();
-        	DependencyResolver.SetResolver(new StructureMapDependencyResolver(ObjectFactory.Container));
-			RegisterGlobalFilters(GlobalFilters.Filters);
+            BootStrapper.RegisterIoC();
+            DependencyResolver.SetResolver(new StructureMapDependencyResolver(ObjectFactory.Container));
+            RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
         }
     }
