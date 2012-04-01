@@ -13,6 +13,11 @@ namespace OzarkRecovery.Infrastructure.DataAccess
 {
     public class ORContext : DbContext
     {
+        public ORContext() : base("OzarkRecovery")
+        {
+            Database.Initialize(true);
+        }
+
         //private static string connString = @"Data Source=sql2k8b.appliedi.net;Initial Catalog=ozarkrecovery;Persist Security Info=True;User ID=ozark;Password=recovery";
         public DbSet<Assignment> Assignment { get; set; }
         public DbSet<Client> Client { get; set; }
