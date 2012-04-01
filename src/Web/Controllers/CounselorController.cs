@@ -4,6 +4,7 @@ using System.Dynamic;
 using System.Web.Mvc;
 using OzarkRecovery.Core.Domain.Interfaces;
 using OzarkRecovery.Core.Domain.Model;
+using OzarkRecovery.Web.Models;
 
 namespace OzarkRecovery.Web.Controllers
 {
@@ -101,7 +102,7 @@ namespace OzarkRecovery.Web.Controllers
 
         public ActionResult Add()
         {
-            return Content("Coming soon");
+            return View(new CounselorAddModel());
         }
     }
 }
