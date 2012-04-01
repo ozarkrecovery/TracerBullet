@@ -1,4 +1,3 @@
-
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +10,7 @@ using OzarkRecovery.Infrastructure.DataAccess;
 using OzarkRecovery.Core.Services;
 using OzarkRecovery.Infrastructure.Services;
 using OzarkRecovery.Core.Domain.Model;
+using OzarkRecovery.Core.Domain.Model.TreatmentStrategies;
 
 namespace OzarkRecovery.Infrastructure.DependencyResolution
 {
@@ -24,6 +24,11 @@ namespace OzarkRecovery.Infrastructure.DependencyResolution
                 x.For<IRepository>().Use<Repository>();
                 x.For<DbContext>().Use<ORContext>();
                 x.For<ISecurityContextService>().Use<SecurityContextService>();
+                x.For<ITreatmentStrategy>().AddInstances(y =>
+                    {
+                        y.Type<OzarkRecoveryTreatmentStrategy>().Named("OzarkRecovery");
+                        //add more strategy implementations for different facilities
+                    });
             });
         }
     }
