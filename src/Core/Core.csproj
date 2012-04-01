@@ -47,11 +47,9 @@
     <Compile Include="Domain\Interfaces\ITreatmentStrategy.cs" />
     <Compile Include="Domain\Interfaces\IRepository.cs" />
     <Compile Include="Domain\Model\Assignment.cs" />
-    <Compile Include="Domain\Model\ClientEventDesc.cs" />
     <Compile Include="Domain\Model\Counselor.cs" />
     <Compile Include="Domain\Model\Document.cs" />
     <Compile Include="Domain\Model\Entity.cs" />
-    <Compile Include="Domain\Model\ClientEvent.cs" />
     <Compile Include="Domain\Model\Client.cs" />
     <Compile Include="Domain\Model\Meeting.cs" />
     <Compile Include="Domain\Model\MeetingType.cs" />
