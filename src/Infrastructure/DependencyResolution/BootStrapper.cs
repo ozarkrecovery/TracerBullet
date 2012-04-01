@@ -46,7 +46,8 @@ namespace OzarkRecovery.Infrastructure.DependencyResolution
                 IsSupervisor = true,
                 IsActive = true
             });
-            context.Counselor.Add(new Counselor
+
+            var jane = context.Counselor.Add(new Counselor
             {
                 FirstName = "Jane",
                 LastName = "Doe",
@@ -55,7 +56,38 @@ namespace OzarkRecovery.Infrastructure.DependencyResolution
                 IsSupervisor = false,
                 IsActive = true
             });
+
+            context.Client.Add(new Client
+            {
+                Id = 123,
+                FirstName = "Jane",
+                LastName = "Fonda",
+            });
+
+            context.Client.Add(new Client
+            {
+                Id = 124,
+                FirstName = "Tom",
+                LastName = "Hanks",
+            });
+
+            var hulk = context.Client.Add(new Client
+            {
+                Id = 125,
+                FirstName = "The",
+                LastName = "Hulk",
+            });
+
+            context.Treatment.Add(new Treatment
+            {
+                Id = 1587,
+                Counselor = jane,
+                Client = hulk,
+                StartDate = new DateTime(2012, 3, 1),
+            });
+
             context.SaveChanges();
+
             base.Seed(context);
         }
     }
