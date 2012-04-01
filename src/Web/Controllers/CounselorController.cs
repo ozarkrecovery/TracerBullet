@@ -18,13 +18,13 @@ namespace OzarkRecovery.Web.Controllers
         {
             //ViewBag.User = WhoAmI();
             //ViewBag.Counselors = _repository.Find<Counselor>(x => x.IsActive == true);
-            ViewBag.User = new Counselor {Id = 1234, FullName = "Johnny Supervisor", IsActive = true, IsSupervisor = true, Password = "abc", UserName = "jsupe"};
+            ViewBag.User = new Counselor {Id = 1234, FirstName = "Johnny Supervisor", IsActive = true, IsSupervisor = true, Password = "abc", UserName = "jsupe"};
             ViewBag.Counselors = new List<Counselor>
                                      {
                                          new Counselor
                                              {
                                                  Id = 1,
-                                                 FullName = "Jane Doe",
+                                                 FirstName = "Jane Doe",
                                                  IsActive = true,
                                                  IsSupervisor = false,
                                                  Password = "abc",
@@ -35,7 +35,7 @@ namespace OzarkRecovery.Web.Controllers
                                          new Counselor
                                              {
                                                  Id = 2,
-                                                 FullName = "John Doe",
+                                                 FirstName = "John Doe",
                                                  IsActive = true,
                                                  IsSupervisor = true,
                                                  Password = "abc",
@@ -45,7 +45,7 @@ namespace OzarkRecovery.Web.Controllers
                                          new Counselor
                                              {
                                                  Id = 3,
-                                                 FullName = "Jane Smith",
+                                                 FirstName = "Jane Smith",
                                                  IsActive = true,
                                                  IsSupervisor = true,
                                                  Password = "abc",
@@ -55,7 +55,7 @@ namespace OzarkRecovery.Web.Controllers
                                          new Counselor
                                              {
                                                  Id = 4,
-                                                 FullName = "John Smith",
+                                                 FirstName = "John Smith",
                                                  IsActive = true,
                                                  IsSupervisor = true,
                                                  Password = "abc",
