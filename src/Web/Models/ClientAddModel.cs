@@ -12,5 +12,7 @@ namespace OzarkRecovery.Web.Models
         public string FirstName { get; set; }
         [Required]
         public string LastName { get; set; }
+
+        public int Counselor { get; set; }
     }
 }
