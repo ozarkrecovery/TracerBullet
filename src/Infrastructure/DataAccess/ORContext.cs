@@ -11,8 +11,6 @@ namespace OzarkRecovery.Infrastructure.DataAccess
 {
     public class ORContext : DbContext
     {
-        private static string connString = @"Data Source=sql2k8b.appliedi.net;Initial Catalog=Ozarkrecovery;Persist Security Info=True;User ID=ozark;Password=recovery";
-
         public DbSet<Client> Client { get; set; }
         public DbSet<ClientEvent> ClientEvent { get; set; }
         public DbSet<ClientEventDesc> ClientEventDesc { get; set; }
@@ -23,7 +21,7 @@ namespace OzarkRecovery.Infrastructure.DataAccess
 
 
 
-        public ORContext() : base(connString)
+        public ORContext()
         { }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
