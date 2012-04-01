@@ -78,13 +78,8 @@ namespace OzarkRecovery.Infrastructure.DependencyResolution
                 LastName = "Hulk",
             });
 
-            context.Treatment.Add(new Treatment
-            {
-                Id = 1587,
-                Counselor = jane,
-                Client = hulk,
-                StartDate = new DateTime(2012, 3, 1),
-            });
+            var strategy = ObjectFactory.GetNamedInstance<ITreatmentStrategy>("OzarkRecovery");
+            hulk.Treatments.Add(strategy.GenerateTreatment(hulk, jane));
 
             context.SaveChanges();
 
