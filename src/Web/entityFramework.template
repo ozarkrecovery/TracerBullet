@@ -1,0 +1,8 @@
+﻿<?xml version="1.0"?>
+<entityFramework>
+	<defaultConnectionFactory type="System.Data.Entity.Infrastructure.SqlConnectionFactory, EntityFramework">
+		<parameters>
+		    <parameter value="null" />
+		</parameters>
+	</defaultConnectionFactory>
+</entityFramework>

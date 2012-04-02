@@ -8,6 +8,7 @@ TestResults
 *.bak
 *.ncb
 *.log
+*.prv
 _ReSharper.*
 *.resharper
 
